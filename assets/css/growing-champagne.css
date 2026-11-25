@@ -1,0 +1,243 @@
+/* ---------------- 产品差异化：Growing = 暖橄榄绿 ---------------- */
+[data-accent="olive"].g-hero::before {
+  background: radial-gradient(circle, rgba(140, 210, 110, 0.42), transparent 66%);
+}
+[data-accent="olive"] .g-statement__glow {
+  background: radial-gradient(circle, rgba(140, 210, 110, 0.34), transparent 64%);
+}
+[data-accent="olive"] .g-closing__glow {
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.4), transparent 62%);
+}
+[data-accent="olive"] .chainflow__bar { background: rgba(140, 210, 110, 0.14); }
+
+/* =========================================================================
+   勺禾Growing · 香槟金版覆盖层
+   把浅纸+金页面收敛到统一香槟体系（不使用黄色），首屏改为暖色
+   ========================================================================= */
+
+/* ---------------- 首屏：深色 → 暖香槟 ---------------- */
+.g-hero {
+  background: transparent;
+  color: var(--champ-text-hi);
+  min-height: 0;
+  align-items: center;
+  padding-top: calc(var(--nav-h) + clamp(44px, 8vh, 96px));
+  padding-bottom: clamp(52px, 9vh, 104px);
+}
+.g-hero__bg { display: none; }
+
+.g-hero::before {
+  content: "";
+  position: absolute;
+  right: -14%;
+  top: -30%;
+  width: 64vw;
+  height: 64vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(140, 210, 110, 0.38), transparent 66%);
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: 0;
+}
+.g-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(10, 90, 60, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 90, 60, 0.055) 1px, transparent 1px);
+  background-size: 92px 92px;
+  mask-image: radial-gradient(ellipse 80% 70% at 46% 36%, #000, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 46% 36%, #000, transparent 78%);
+}
+
+.g-hero__product { color: var(--gold-600); }
+.g-hero__badge {
+  color: var(--champ-text-hi);
+  background: #fff;
+  border-color: rgba(10, 90, 60, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.g-hero__badge .dot { background: var(--gold-400); box-shadow: 0 0 10px var(--gold-400); }
+
+.g-hero__title { color: var(--champ-text-hi); }
+.g-hero__grid { border-top-color: rgba(10, 90, 60, 0.14); }
+.g-hero__grid p { color: var(--champ-text-mid); }
+.g-hero__grid p::before { border-color: var(--gold-500); }
+.g-hero__grid p:last-child { color: var(--champ-text-hi); }
+.g-hero__grid p:last-child::before { background: var(--gold-400); border-color: var(--gold-400); }
+
+.g-hero__fig b { color: var(--champ-text-hi); }
+.g-hero__fig b i { color: var(--gold-600); }
+.g-hero__fig span { color: var(--champ-text-lo); }
+
+/* ---------------- 区域骨架 ---------------- */
+.g-sec--paper { background: var(--tint-page); }
+.g-sec--alt { background: var(--tint-band); }
+.g-sec--dark { background: var(--champ-2); color: var(--champ-text-hi); }
+
+.g-sec__index { color: var(--gold-600); }
+.g-sec__index::after { background: linear-gradient(90deg, rgba(201, 164, 103, 0.7), transparent); }
+.g-sec__title { color: var(--champ-text-hi); }
+.g-sec__note { color: var(--champ-text-mid); }
+
+/* 强调文字 */
+.gitem .em,
+[data-theme="growing"] .em { color: var(--gold-600); }
+
+/* ---------------- 01 四步卡 ---------------- */
+.chstep {
+  background: var(--tint-card);
+  border-color: rgba(62, 146, 56, 0.2);
+  box-shadow: 0 1px 2px rgba(7, 58, 33, 0.05), 0 18px 40px -32px rgba(7, 58, 33, 0.38);
+}
+.chstep:hover {
+  background: #fff;
+  border-color: rgba(201, 164, 103, 0.55);
+  box-shadow: 0 26px 50px -38px rgba(7, 58, 33, 0.42);
+}
+.chstep__no { color: var(--gold-600); }
+.chstep__key { color: var(--champ-text-hi); }
+.chstep__sub { border-top-color: rgba(10, 90, 60, 0.14); }
+.chstep__sub span { color: var(--champ-text-mid); }
+.chstep__sub span:first-child { color: var(--champ-text-hi); }
+
+.chainflow__bar {
+  background: rgba(201, 164, 103, 0.1);
+  border-color: rgba(10, 90, 60, 0.15);
+}
+.chainflow__bar span {
+  color: var(--champ-text-hi);
+  border-left-color: rgba(10, 90, 60, 0.11);
+}
+.chainflow__bar span:hover { background: rgba(201, 164, 103, 0.16); }
+.flow-arrow { color: var(--gold-600); }
+
+/* ---------------- 02 断点卡 ---------------- */
+.brk {
+  background: var(--champ-0);
+  border-color: rgba(10, 90, 60, 0.13);
+}
+.brk:hover {
+  background: #fff;
+  border-color: rgba(201, 164, 103, 0.5);
+}
+.brk::before { background: linear-gradient(180deg, transparent, var(--gold-400), transparent); }
+.brk__label { color: var(--gold-600); }
+.brk__label em {
+  border-color: rgba(201, 164, 103, 0.42);
+  background: rgba(201, 164, 103, 0.12);
+  color: var(--gold-700);
+}
+.brk__title { color: var(--champ-text-hi); }
+.brk__body { color: var(--champ-text-mid); }
+.brk__quote {
+  color: var(--gold-700);
+  background: rgba(201, 164, 103, 0.15);
+  border-color: rgba(201, 164, 103, 0.34);
+}
+
+/* ---------------- 居中大字（深色带 → 暖香槟带） ---------------- */
+.g-statement {
+  background: var(--tint-band);
+  color: var(--champ-text-hi);
+  border-top: 1px solid rgba(10, 90, 60, 0.11);
+  border-bottom: 1px solid rgba(10, 90, 60, 0.11);
+}
+.g-statement__glow {
+  background: radial-gradient(circle, rgba(140, 210, 110, 0.38), transparent 64%);
+}
+.g-statement__text { color: var(--champ-text-hi); }
+.g-statement__text .hl { color: var(--gold-600); }
+.g-statement__text .hl::after {
+  background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+}
+.g-statement__rings { opacity: 0.32; }
+.g-statement__rings i { border-color: rgba(201, 164, 103, 0.5); }
+
+/* ---------------- 03–05 长进链路 ---------------- */
+.glink { border-top-color: rgba(10, 90, 60, 0.14); }
+.glink::before { background: linear-gradient(90deg, var(--gold-400), transparent); }
+.glink__num b { -webkit-text-stroke-color: rgba(140, 210, 110, 0.45); }
+.glink__num span { color: var(--gold-600); }
+.glink__title { color: var(--champ-text-hi); }
+.gitem { border-bottom-color: rgba(10, 90, 60, 0.12); }
+.gitem:first-child { border-top-color: rgba(10, 90, 60, 0.12); }
+.gitem::before { border-color: var(--gold-500); }
+.gitem:hover::before { background: var(--gold-400); }
+.gitem__lead { color: var(--champ-text-hi); }
+.gitem__text { color: var(--champ-text-mid); }
+.gitem__dot { color: var(--gold-600); }
+.gitem--iron { background: linear-gradient(90deg, rgba(140, 210, 110, 0.13), transparent 62%); }
+.iron-badge {
+  background: rgba(201, 164, 103, 0.16);
+  border-color: rgba(201, 164, 103, 0.42);
+  color: var(--gold-700);
+}
+
+/* ---------------- 06 覆盖平台 ---------------- */
+.pf {
+  background: var(--champ-0);
+  border-color: rgba(10, 90, 60, 0.14);
+}
+.pf:hover {
+  background: #fff;
+  border-color: rgba(201, 164, 103, 0.55);
+}
+.pf::before { background: linear-gradient(90deg, transparent, rgba(201, 164, 103, 0.85), transparent); }
+.pf__mark { border-color: transparent; background: transparent; }
+.pf__idx { color: var(--champ-text-lo); }
+.pf__name { color: var(--champ-text-hi); }
+
+/* ---------------- 收尾 ---------------- */
+.g-closing {
+  background: var(--tint-band);
+  color: var(--champ-text-hi);
+  border-top: 1px solid rgba(10, 90, 60, 0.12);
+}
+.g-closing__glow { background: radial-gradient(circle, rgba(140, 210, 110, 0.4), transparent 62%); }
+.g-closing__name { color: var(--gold-600); }
+.g-closing__title { color: var(--champ-text-hi); }
+.g-closing .g-btn { border-color: rgba(10, 90, 60, 0.26); color: var(--champ-text-hi); }
+.g-closing .g-btn::before { background: var(--gold-400); }
+.g-closing .g-btn:hover { color: #fff; border-color: transparent; }
+
+/* 旧页脚隐藏（改用统一页脚） */
+[data-palette="champagne"] .footer--growing { display: none; }
+
+/* 强调色跟随产品：Growing = 橄榄绿 */
+[data-accent="olive"] .chstep__no,
+[data-accent="olive"] .brk__label,
+[data-accent="olive"] .glink__num span,
+[data-accent="olive"] .g-sec__index,
+[data-accent="olive"] .pf__idx { color: var(--accent-2); }
+[data-accent="olive"] .glink__num b { -webkit-text-stroke-color: rgba(62, 146, 56, 0.42); }
+[data-accent="olive"] .gitem::before { border-color: var(--accent-1); }
+[data-accent="olive"] .gitem:hover::before { background: var(--accent-1); }
+[data-accent="olive"] .gitem__dot { color: var(--accent-2); }
+[data-accent="olive"] .brk__quote {
+  color: var(--accent-3);
+  background: rgba(92, 186, 84, 0.16);
+  border-color: rgba(62, 146, 56, 0.36);
+}
+[data-accent="olive"] .brk__label em {
+  border-color: rgba(62, 146, 56, 0.45);
+  background: rgba(92, 186, 84, 0.14);
+  color: var(--accent-3);
+}
+[data-accent="olive"] .brk::before { background: linear-gradient(180deg, transparent, var(--accent-1), transparent); }
+[data-accent="olive"] .g-statement__text .hl { color: var(--accent-3); }
+[data-accent="olive"] .g-statement__text .hl::after {
+  background: linear-gradient(90deg, transparent, var(--accent-1), transparent);
+}
+[data-accent="olive"] .chainflow__bar span { color: var(--champ-text-hi); }
+[data-accent="olive"] .flow-arrow { color: var(--accent-2); }
+[data-accent="olive"] .iron-badge {
+  background: rgba(92, 186, 84, 0.18);
+  border-color: rgba(62, 146, 56, 0.42);
+  color: var(--accent-3);
+}
+[data-accent="olive"] .gitem .em { color: var(--gold-600); }

@@ -1,0 +1,204 @@
+/* =========================================================================
+   勺禾 · 金光与动态层
+   在雅绿底上叠加「金」作为光：流光、扫光、光斑跟随、呼吸光、数字浮游
+   ========================================================================= */
+
+/* ---------------- 1. 金色扫光（按钮 / 卡片） ---------------- */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -70%;
+  width: 46%;
+  height: 220%;
+  z-index: 2;
+  pointer-events: none;
+  transform: rotate(18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 244, 214, 0) 30%,
+    rgba(255, 246, 220, 0.72) 50%,
+    rgba(255, 244, 214, 0) 70%,
+    transparent
+  );
+  opacity: 0;
+  visibility: hidden;
+}
+.shine:hover::after {
+  opacity: 1;
+  visibility: visible;
+  animation: shineThrough 1.05s cubic-bezier(0.25, 0.6, 0.35, 1) forwards;
+}
+@keyframes shineThrough {
+  0% { left: -70%; opacity: 1; }
+  92% { left: 130%; opacity: 1; }
+  100% { left: 130%; opacity: 0; }
+}
+
+/* 卡片悬停时的金边描光 */
+.gold-edge {
+  position: relative;
+}
+.gold-edge::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(224, 203, 149, 0.9),
+    rgba(201, 169, 97, 0.15) 32%,
+    transparent 52%,
+    rgba(201, 169, 97, 0.15) 70%,
+    rgba(224, 203, 149, 0.75)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s var(--eo);
+  pointer-events: none;
+  z-index: 3;
+}
+.gold-edge:hover::before { opacity: 1; }
+
+/* ---------------- 2. 光斑跟随（鼠标） ---------------- */
+.glow-follow {
+  position: relative;
+  isolation: isolate;
+}
+.glow-follow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.45s var(--eo);
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(224, 203, 149, 0.22),
+    rgba(201, 169, 97, 0.06) 40%,
+    transparent 66%
+  );
+}
+.glow-follow:hover::after { opacity: 1; }
+
+/* ---------------- 3. 呼吸金光（首屏大标题 / 关键数字） ---------------- */
+.gold-breathe {
+  background: linear-gradient(
+    100deg,
+    var(--gold-600) 0%,
+    var(--gold-400) 26%,
+    #F0DCA8 44%,
+    var(--gold-400) 62%,
+    var(--gold-600) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldFlow 9s ease-in-out infinite;
+}
+@keyframes goldFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ---------------- 4. 光晕呼吸（背景光斑） ---------------- */
+.glow-pulse {
+  animation: glowPulse 7s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+
+/* ---------------- 5. 金色分隔线生长 ---------------- */
+.gold-rule {
+  position: relative;
+  height: 1px;
+  background: rgba(20, 40, 30, 0.1);
+  overflow: hidden;
+}
+.gold-rule::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 1.1s var(--eo);
+}
+.gold-rule.is-in::after { transform: scaleX(1); }
+
+/* ---------------- 6. 浮游金点（首屏氛围） ---------------- */
+.floaters {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.floater {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #FBF0D2, var(--gold-400) 62%, rgba(201, 169, 97, 0.2));
+  box-shadow: 0 0 12px rgba(224, 203, 149, 0.75);
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translate3d(0, 12vh, 0) scale(0.6); opacity: 0; }
+  12% { opacity: var(--o, 0.5); }
+  80% { opacity: var(--o, 0.5); }
+  100% { transform: translate3d(var(--dx, 10px), -70vh, 0) scale(1.05); opacity: 0; }
+}
+
+/* ---------------- 7. 进场：金光扫过标题 ---------------- */
+.reveal-gold {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.15s var(--eo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-gold.is-in { clip-path: inset(0 0 0 0); }
+
+/* ---------------- 8. 数字：金色描边高亮 ---------------- */
+.num-gold {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201, 169, 97, 0.65);
+  transition: -webkit-text-stroke-color 0.6s, opacity 0.6s;
+}
+.num-gold:hover { -webkit-text-stroke-color: var(--gold-400); }
+
+/* ---------------- 9. 卡片悬停金辉增强 ---------------- */
+.card-gold {
+  transition: transform 0.65s var(--eo), box-shadow 0.65s var(--eo), border-color 0.5s, background 0.5s;
+}
+.card-gold:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 28px 56px -34px rgba(7, 58, 33, 0.42),
+    0 0 0 1px rgba(201, 169, 97, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* ---------------- 10. 减少动效时全部关闭 ---------------- */
+@media (prefers-reduced-motion: reduce) {
+  .shine::after,
+  .gold-breathe,
+  .glow-pulse,
+  .floater { animation: none !important; }
+  .gold-breathe { color: var(--gold-600); -webkit-text-fill-color: var(--gold-600); }
+  .reveal-gold { clip-path: none !important; }
+  .floater { display: none; }
+}

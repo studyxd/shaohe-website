@@ -1,0 +1,606 @@
+/* =========================================================================
+   首页 · 两张产品大卡片
+   ========================================================================= */
+
+/* ---------------- 背景层 ---------------- */
+.home-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--ink-1000);
+}
+.home-bg__grid {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(var(--line-1) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-1) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 10%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 10%, transparent 78%);
+  opacity: 0.55;
+}
+.home-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+.home-bg__glow--a {
+  width: 62vw;
+  height: 62vw;
+  left: -16vw;
+  top: -18vw;
+  background: radial-gradient(circle, rgba(103, 174, 153, 0.2), transparent 66%);
+  transform: translate3d(var(--px, 0), var(--py, 0), 0);
+}
+.home-bg__glow--b {
+  width: 58vw;
+  height: 58vw;
+  right: -14vw;
+  bottom: -20vw;
+  background: radial-gradient(circle, rgba(201, 164, 103, 0.17), transparent 66%);
+  transform: translate3d(calc(var(--px, 0) * -1), calc(var(--py, 0) * -1), 0);
+}
+.home-bg__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* 细线光束 */
+.home-bg__beam {
+  position: absolute;
+  left: 50%;
+  top: -40%;
+  width: 1px;
+  height: 180%;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  transform: rotate(18deg);
+  opacity: 0.5;
+}
+.home-bg__beam--2 { transform: rotate(18deg) translateX(-30vw); opacity: 0.24; }
+.home-bg__beam--3 { transform: rotate(18deg) translateX(30vw); opacity: 0.24; }
+
+/* ---------------- 页面骨架 ---------------- */
+.home {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding-top: calc(var(--nav-h) + clamp(24px, 5vh, 64px));
+  padding-bottom: clamp(20px, 3vh, 40px);
+}
+
+/* ---------------- 标题区 ---------------- */
+.home-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: clamp(22px, 3.4vh, 40px);
+}
+.home-head__title {
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  max-width: 20ch;
+}
+.home-head__title .accent {
+  background: linear-gradient(100deg, var(--jade-200), var(--sand-200) 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.home-head__aside {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  text-align: right;
+}
+.home-head__aside .mono { color: var(--text-lo); }
+.home-head__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-lo);
+  text-transform: uppercase;
+  font-family: var(--mono);
+}
+.home-head__scroll i {
+  width: 1px;
+  height: 22px;
+  background: linear-gradient(180deg, var(--text-lo), transparent);
+  animation: scrollhint 2.2s var(--eio) infinite;
+}
+@keyframes scrollhint {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.3; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* ---------------- 卡片网格 ---------------- */
+.product-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 1.6vw, 26px);
+  min-height: min(62vh, 620px);
+}
+
+/* ---------------- 单张产品卡 ---------------- */
+.pcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(24px, 2.6vw, 44px);
+  border-radius: clamp(20px, 2.2vw, 34px);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--line-2);
+  background: var(--ink-850);
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.7s var(--eo),
+    border-color 0.5s,
+    box-shadow 0.7s var(--eo);
+  will-change: transform;
+}
+.pcard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 90px rgba(0, 0, 0, 0.28);
+}
+.pcard:hover { transform: translate3d(0, -6px, 0); }
+.pcard--smart:hover { box-shadow: 0 40px 80px -30px rgba(49, 110, 94, 0.7), 0 0 0 1px rgba(143, 199, 182, 0.28); }
+.pcard--growing:hover { box-shadow: 0 40px 80px -30px rgba(150, 112, 52, 0.62), 0 0 0 1px rgba(220, 192, 143, 0.3); }
+
+/* 卡片背景图 */
+.pcard__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 1.4s var(--eo), filter 0.9s var(--eo);
+  filter: saturate(0.92) contrast(1.02);
+}
+.pcard:hover .pcard__media { transform: scale(1.02); }
+
+/* 渐变压暗（保证文字可读） */
+.pcard__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.pcard--smart .pcard__veil {
+  background:
+    linear-gradient(180deg, rgba(4, 14, 13, 0.28) 0%, rgba(4, 14, 13, 0.5) 42%, rgba(3, 11, 10, 0.94) 82%),
+    radial-gradient(120% 90% at 12% 8%, rgba(70, 130, 112, 0.34), transparent 62%);
+}
+.pcard--growing .pcard__veil {
+  background:
+    linear-gradient(180deg, rgba(10, 8, 4, 0.3) 0%, rgba(10, 8, 4, 0.52) 42%, rgba(6, 5, 3, 0.95) 84%),
+    radial-gradient(120% 90% at 88% 10%, rgba(150, 116, 56, 0.4), transparent 62%);
+}
+
+/* 卡片顶部细线网格（质感） */
+.pcard__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 62%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 62%);
+  opacity: 0.7;
+}
+
+/* 顶部：编号 / 标签 */
+.pcard__top {
+  position: absolute;
+  top: clamp(22px, 2.4vw, 38px);
+  left: clamp(24px, 2.6vw, 44px);
+  right: clamp(24px, 2.6vw, 44px);
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.pcard__index {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.58);
+}
+.pcard__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.pcard__tag .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+.pcard--smart .pcard__tag .dot { color: var(--jade-200); }
+.pcard--growing .pcard__tag .dot { color: var(--sand-200); }
+
+/* 卡片内容 */
+.pcard__body {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  gap: clamp(10px, 1.2vh, 18px);
+}
+.pcard__kicker {
+  font-family: var(--mono);
+  font-size: clamp(10px, 0.86vw, 12px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+.pcard__name {
+  font-size: clamp(30px, 3.6vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  color: #fff;
+}
+.pcard__name span {
+  display: block;
+  font-family: var(--mono);
+  font-size: clamp(11px, 0.95vw, 13px);
+  letter-spacing: 0.28em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 10px;
+}
+.pcard__line {
+  font-size: clamp(14px, 1.15vw, 16.5px);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 30ch;
+}
+
+/* 卡片底部：进入按钮 */
+.pcard__foot {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: clamp(18px, 2.4vh, 34px);
+  padding-top: clamp(16px, 2vh, 24px);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.pcard__enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-weight: 500;
+}
+.pcard__enter .circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  transition: background 0.45s var(--eo), color 0.45s, transform 0.45s var(--eo), border-color 0.45s;
+}
+.pcard:hover .pcard__enter .circle {
+  transform: rotate(-45deg) scale(1.06);
+  border-color: transparent;
+}
+.pcard--smart:hover .pcard__enter .circle { background: var(--jade-200); color: #06231c; }
+.pcard--growing:hover .pcard__enter .circle { background: var(--sand-200); color: #2a1e0c; }
+.pcard__enter svg { width: 15px; height: 15px; }
+
+.pcard__meta {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.56);
+  text-align: right;
+}
+
+/* 悬停时从底部升起的彩色光带 */
+.pcard__glowband {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 5;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.8s var(--eo);
+}
+.pcard--smart .pcard__glowband { background: linear-gradient(90deg, transparent, var(--jade-300), transparent); }
+.pcard--growing .pcard__glowband { background: linear-gradient(90deg, transparent, var(--sand-300), transparent); }
+.pcard:hover .pcard__glowband { transform: scaleX(1); }
+
+/* 整卡铺满的点击热区（可访问） */
+.pcard__hit {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+}
+
+/* ---------------- 首页底部信息条 ---------------- */
+.home-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: clamp(18px, 2.6vh, 30px);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  color: var(--text-lo);
+}
+.home-foot__links { display: flex; gap: 22px; }
+.home-foot__links a { transition: color 0.3s; }
+.home-foot__links a:hover { color: var(--text-hi); }
+
+/* ---------------- 入场 ---------------- */
+.home-head__title { opacity: 0; transform: translateY(22px); filter: blur(8px); }
+.home-head__aside { opacity: 0; }
+.home-foot { opacity: 0; }
+.pcard { opacity: 0; transform: translate3d(0, 34px, 0) scale(0.985); }
+.is-ready .home-head__title { opacity: 1; transform: none; filter: none; transition: opacity 1s var(--eo) 0.1s, transform 1.1s var(--eo) 0.1s, filter 1s var(--eo) 0.1s; }
+.is-ready .home-head__aside { opacity: 1; transition: opacity 1s var(--eo) 0.5s; }
+.is-ready .pcard { opacity: 1; transform: none; transition: opacity 1s var(--eo) var(--d), transform 1.1s var(--eo) var(--d); }
+.pcard--smart { --d: 0.25s; }
+.pcard--growing { --d: 0.4s; }
+.is-ready .home-foot { opacity: 1; transition: opacity 1s var(--eo) 0.8s; }
+
+/* ---------------- 响应式 ---------------- */
+@media (max-width: 900px) {
+  .product-grid { grid-template-columns: 1fr; min-height: 0; }
+  .pcard { min-height: 380px; }
+  .home-head { grid-template-columns: 1fr; }
+  .home-head__aside { justify-items: start; text-align: left; }
+  .home { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .pcard { min-height: 340px; padding: 22px; }
+  .pcard__top { top: 20px; left: 22px; right: 22px; }
+  .pcard__meta { display: none; }
+  .pcard__foot { margin-top: 18px; }
+}
+
+/* =========================================================================
+   首页 · 香槟金版（延续原布局，替换配色与卡片内部结构）
+   ========================================================================= */
+[data-palette="champagne"] .home-head__title {
+  color: var(--champ-text-hi);
+}
+[data-palette="champagne"] .home-head__title .accent {
+  background: linear-gradient(100deg, var(--gold-600), var(--gold-400) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.home-head__sub {
+  display: block;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.75;
+  color: var(--champ-text-mid);
+  max-width: 27em;
+  text-align: right;
+  text-wrap: pretty;
+}
+[data-palette="champagne"] .home-head__scroll { color: var(--champ-text-lo); }
+[data-palette="champagne"] .home-head__scroll i {
+  background: linear-gradient(180deg, var(--gold-400), transparent);
+}
+.home-head__aside { display: grid; gap: 14px; justify-items: end; }
+
+/* 产品大卡片 · 暖色 */
+[data-palette="champagne"] .pcard {
+  background: var(--champ-0);
+  border: 1px solid rgba(10, 90, 60, 0.16);
+  box-shadow: 0 26px 60px -46px rgba(7, 58, 33, 0.5);
+}
+[data-palette="champagne"] .pcard:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow:
+    0 40px 80px -42px rgba(7, 58, 33, 0.45),
+    0 0 0 1px rgba(201, 169, 97, 0.4),
+    0 0 40px -12px rgba(224, 203, 149, 0.5);
+}
+[data-palette="champagne"] .pcard::after {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+/* 卡片顶部：编号 + 名称 + 标签 */
+.pcard__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pcard__no {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--gold-400);
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.25);
+}
+.pcard--growing .pcard__no { background: #3E9238; }
+.pcard--smart .pcard__no { background: #0C8A5C; }
+.pcard__name-inline {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--champ-text-hi);
+  letter-spacing: 0.01em;
+}
+[data-palette="champagne"] .pcard__tag {
+  margin-left: auto;
+  color: var(--champ-text-mid);
+  background: #fff;
+  border: 1px solid rgba(142, 110, 56, 0.18);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+[data-palette="champagne"] .pcard__tag .dot { color: var(--gold-400); }
+[data-palette="champagne"] .pcard__name {
+  color: var(--champ-text-hi);
+  font-size: clamp(30px, 3.5vw, 50px);
+}
+[data-palette="champagne"] .pcard__line {
+  color: var(--champ-text-mid);
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 1.78;
+  max-width: 26em;
+}
+[data-palette="champagne"] .pcard__foot {
+  border-top: 1px solid rgba(142, 110, 56, 0.14);
+}
+[data-palette="champagne"] .pcard__enter {
+  color: var(--champ-text-hi);
+  font-weight: 600;
+}
+[data-palette="champagne"] .pcard__enter .circle {
+  border-color: rgba(142, 110, 56, 0.3);
+  color: var(--gold-600);
+}
+[data-palette="champagne"] .pcard:hover .pcard__enter .circle {
+  border-color: transparent;
+}
+[data-palette="champagne"] .pcard--smart:hover .pcard__enter .circle { background: var(--gold-400); color: #fff; }
+[data-palette="champagne"] .pcard--growing:hover .pcard__enter .circle { background: var(--gold-600); color: #fff; }
+[data-palette="champagne"] .pcard__meta { color: var(--champ-text-lo); }
+
+/* 卡片背景：暖色柔光，不再用深色压图 */
+[data-palette="champagne"] .pcard__media {
+  opacity: 1;
+  filter: none;
+}
+/* Smart：Logo 绿的冷端（青绿） */
+[data-palette="champagne"] .pcard--smart .pcard__media {
+  background-image:
+    radial-gradient(ellipse 66% 58% at 76% 20%, rgba(26, 176, 122, 0.32), transparent 66%),
+    radial-gradient(ellipse 48% 42% at 16% 80%, rgba(65, 234, 142, 0.18), transparent 68%),
+    linear-gradient(158deg, #E9F7EF 0%, #D3EDDF 48%, #BEE3CE 100%);
+}
+/* Growing：Logo 绿的暖端（黄绿） */
+[data-palette="champagne"] .pcard--growing .pcard__media {
+  background-image:
+    radial-gradient(ellipse 66% 58% at 76% 20%, rgba(92, 186, 84, 0.34), transparent 66%),
+    radial-gradient(ellipse 48% 42% at 16% 80%, rgba(140, 210, 110, 0.2), transparent 68%),
+    linear-gradient(158deg, #EFF7E7 0%, #DCEBCE 48%, #C9E2B7 100%);
+}
+/* 左上角绿色氛围 */
+[data-palette="champagne"] .pcard--smart::before,
+[data-palette="champagne"] .pcard--growing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+[data-palette="champagne"] .pcard--smart::before {
+  background: radial-gradient(ellipse 70% 60% at 8% 4%, rgba(12, 138, 92, 0.14), transparent 62%);
+}
+[data-palette="champagne"] .pcard--growing::before {
+  background: radial-gradient(ellipse 70% 60% at 8% 4%, rgba(62, 146, 56, 0.16), transparent 62%);
+}
+[data-palette="champagne"] .pcard__veil { display: none; }
+[data-palette="champagne"] .pcard__grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(rgba(10, 90, 60, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 90, 60, 0.07) 1px, transparent 1px);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+  opacity: 1;
+}
+[data-palette="champagne"] .pcard__glowband { display: none; }
+
+/* 首页底部条 */
+[data-palette="champagne"] .home-foot {
+  color: var(--champ-text-lo);
+  border-top: 1px solid rgba(10, 90, 60, 0.12);
+  padding-top: clamp(16px, 2.4vh, 24px);
+}
+[data-palette="champagne"] .home-foot__links a:hover { color: var(--gold-600); }
+
+/* 首页留白（有招募区，不再是满屏） */
+[data-palette="champagne"] .home {
+  min-height: auto;
+  padding-bottom: clamp(30px, 5vh, 56px);
+}
+[data-palette="champagne"] .product-grid {
+  min-height: clamp(420px, 56vh, 560px);
+}
+
+
+/* =========================================================================
+   卡片内 3D 插画位
+   ========================================================================= */
+[data-palette="champagne"] .pcard__art {
+  position: absolute;
+  right: clamp(16px, 2.2vw, 36px);
+  top: clamp(56px, 9vh, 88px);
+  width: clamp(150px, 17vw, 232px);
+  height: clamp(150px, 17vw, 232px);
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.9s var(--eo);
+}
+[data-palette="champagne"] .pcard:hover .pcard__art { transform: translateY(-6px) scale(1.03); }
+[data-palette="champagne"] .pcard__art svg { width: 100%; height: 100%; overflow: visible; }
+/* 插画投影 */
+[data-palette="champagne"] .pcard__art .art-shadow {
+  fill: rgba(142, 110, 56, 0.18);
+  filter: blur(6px);
+}
+@media (max-width: 1040px) {
+  [data-palette="champagne"] .pcard__art { opacity: 0.55; }
+}
+@media (max-width: 860px) {
+  [data-palette="champagne"] .pcard__art { display: none; }
+}

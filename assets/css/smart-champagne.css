@@ -1,0 +1,285 @@
+/* ---------------- 产品差异化：Smart = 冷青绿 ---------------- */
+[data-accent="jade"].hero::before {
+  background: radial-gradient(circle, rgba(26, 176, 122, 0.4), transparent 66%);
+}
+[data-accent="jade"] .sec--hold::before {
+  background: radial-gradient(ellipse at center, rgba(26, 176, 122, 0.28), transparent 62%);
+}
+[data-accent="jade"] .asset__inner-glow {
+  background: radial-gradient(ellipse at center, rgba(26, 176, 122, 0.26), transparent 66%);
+}
+[data-accent="jade"] .matrix-head__count em { color: var(--accent-2); }
+[data-accent="jade"] .hero__fig b i { color: var(--accent-2); }
+/* =========================================================================
+   勺禾Smart · 香槟金版覆盖层
+   把原本深色产品页整体转为暖香槟体系（不使用黄色）
+   ========================================================================= */
+
+/* ---------------- 页面 & 首屏 ---------------- */
+[data-page="smart"] {
+  background: var(--champ-1);
+  color: var(--champ-text-hi);
+}
+
+.hero {
+  background: transparent;
+  min-height: 0;
+  padding-top: calc(var(--nav-h) + clamp(48px, 9vh, 110px));
+  padding-bottom: clamp(56px, 9vh, 110px);
+}
+.hero__bg { display: none; }
+
+/* 首屏氛围：暖色光斑 */
+.hero::before {
+  content: "";
+  position: absolute;
+  right: -12%;
+  top: -26%;
+  width: 62vw;
+  height: 62vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26, 176, 122, 0.4), transparent 66%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(10, 90, 60, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 90, 60, 0.055) 1px, transparent 1px);
+  background-size: 92px 92px;
+  mask-image: radial-gradient(ellipse 80% 70% at 40% 30%, #000, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 40% 30%, #000, transparent 76%);
+}
+
+.hero__product { color: var(--gold-600); }
+.hero__badge {
+  color: var(--champ-text-hi);
+  background: #fff;
+  border-color: rgba(10, 90, 60, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.hero__badge .dot { background: var(--gold-400); box-shadow: 0 0 10px var(--gold-400); }
+
+.hero__title { color: var(--champ-text-hi); }
+.hero__title .l2 { color: inherit; }
+.hero__title .split-char.grad-text {
+  background: linear-gradient(100deg, var(--gold-600), var(--gold-400) 46%, #F0DCA8 58%, var(--gold-400) 72%, var(--gold-600));
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldFlow 10s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__title .split-char.grad-text { animation: none; }
+}
+
+.hero__lead {
+  color: var(--champ-text-mid);
+  border-left-color: rgba(10, 90, 60, 0.24);
+}
+
+.hero__figures { border-top-color: rgba(10, 90, 60, 0.14); }
+.hero__fig { border-left-color: rgba(10, 90, 60, 0.09); }
+.hero__fig b { color: var(--champ-text-hi); }
+.hero__fig b i { color: var(--gold-600); }
+.hero__fig span { color: var(--champ-text-lo); }
+.hero__scrolldown { color: var(--champ-text-lo); }
+.hero__scrolldown i { background: linear-gradient(180deg, var(--gold-400), transparent); }
+
+/* 按钮（首屏） */
+.hero .btn-solid,
+.closing .btn-solid {
+  background: var(--gold-400);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 24px -14px rgba(142, 110, 56, 0.8);
+}
+.hero .btn-solid::before,
+.closing .btn-solid::before { background: var(--gold-500); }
+.hero .btn-solid:hover,
+.closing .btn-solid:hover { color: #fff; }
+.hero .btn,
+.closing .btn {
+  border-color: rgba(10, 90, 60, 0.26);
+  color: var(--champ-text-hi);
+}
+.hero .btn::before,
+.closing .btn::before { background: var(--gold-400); }
+.hero .btn:hover,
+.closing .btn:hover { color: #fff; border-color: transparent; }
+
+/* ---------------- 区域骨架 ---------------- */
+.sec { background: var(--tint-page); }
+.sec--line { border-top-color: rgba(12, 138, 92, 0.14); }
+.sec--tight { background: var(--tint-page); }
+/* 交替区块用略深的 tint-band 拉开层次 */
+.sec--band { background: var(--tint-band); }
+
+.sec__index { color: var(--gold-600); }
+.sec__index::after { background: linear-gradient(90deg, rgba(201, 164, 103, 0.7), transparent); }
+.sec__title { color: var(--champ-text-hi); }
+.sec__note { color: var(--champ-text-mid); }
+
+/* 章节编号描边 */
+.chapter-no { -webkit-text-stroke: 1px rgba(10, 90, 60, 0.26); }
+
+/* ---------------- 01 资产卡 ---------------- */
+.asset {
+  background: var(--tint-card);
+  border-color: rgba(12, 138, 92, 0.18);
+  box-shadow: 0 1px 2px rgba(7, 58, 33, 0.05), 0 20px 44px -34px rgba(7, 58, 33, 0.4);
+}
+.asset::after { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.asset::before {
+  background: linear-gradient(90deg, transparent, rgba(201, 164, 103, 0.8), transparent);
+}
+.asset:hover { border-color: rgba(201, 164, 103, 0.5); }
+.asset__glyph { color: var(--gold-500); }
+.asset__kicker { color: var(--champ-text-lo); }
+.asset__kicker::before { background: var(--gold-400); }
+.asset__title { color: var(--champ-text-hi); }
+.asset__body { color: var(--champ-text-mid); }
+.asset__keyline {
+  border-top-color: rgba(10, 90, 60, 0.17);
+  color: var(--gold-600);
+}
+.asset__keyline::before { color: var(--gold-500); }
+.asset__no { -webkit-text-stroke-color: rgba(10, 90, 60, 0.19); }
+.asset:hover .asset__no { -webkit-text-stroke-color: rgba(201, 169, 97, 0.45); }
+.asset__inner-glow {
+  background: radial-gradient(ellipse at center, rgba(26, 176, 122, 0.24), transparent 66%);
+}
+
+/* 强调文字（原文加粗处） */
+.em,
+[data-theme="smart"] .em { color: var(--gold-600); }
+
+/* ---------------- 02 陈述 + 三条 ---------------- */
+.sec--hold::before {
+  background: radial-gradient(ellipse at center, rgba(26, 176, 122, 0.24), transparent 62%);
+}
+.statement__text { color: var(--champ-text-hi); }
+.hold-list { border-top-color: rgba(10, 90, 60, 0.14); }
+.hold-list::before { background: linear-gradient(90deg, var(--gold-400), transparent); }
+.hold-item { border-left-color: rgba(10, 90, 60, 0.09); }
+.hold-item::before { background: linear-gradient(90deg, var(--gold-400), transparent); }
+.hold-item__num { color: var(--gold-600); }
+.hold-item__title { color: var(--champ-text-hi); }
+.hold-item__body { color: var(--champ-text-mid); }
+
+/* ---------------- 03 why 卡 ---------------- */
+.why-item {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(142, 110, 56, 0.14);
+}
+.why-item:hover {
+  background: var(--champ-0);
+  border-color: rgba(201, 164, 103, 0.5);
+}
+.why-item__title { color: var(--champ-text-hi); }
+.why-item__body { color: var(--champ-text-mid); }
+.why-item__ghost { -webkit-text-stroke-color: rgba(10, 90, 60, 0.15); }
+.why-item:hover .why-item__ghost { -webkit-text-stroke-color: rgba(142, 110, 56, 0.42); }
+.chip {
+  color: var(--gold-600);
+  border-color: rgba(201, 164, 103, 0.32);
+  background: rgba(201, 164, 103, 0.1);
+}
+
+/* ---------------- 04 矩阵 ---------------- */
+.matrix-head { border-bottom-color: rgba(10, 90, 60, 0.14); }
+.matrix-head__label { color: var(--champ-text-hi); }
+.matrix-head__count { color: var(--champ-text-lo); }
+.matrix-head__count em { color: var(--gold-600); }
+.mrow {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(10, 90, 60, 0.12);
+}
+.mrow:hover {
+  background: var(--champ-0);
+  border-color: rgba(201, 164, 103, 0.5);
+}
+.mrow__cat b { color: var(--champ-text-hi); }
+.mrow__cat i { color: var(--gold-600); }
+.mrow__colon { color: var(--champ-text-lo); }
+.mtag {
+  color: var(--champ-text-hi);
+  background: #fff;
+  border-color: rgba(10, 90, 60, 0.14);
+}
+.mtag:hover {
+  background: rgba(201, 164, 103, 0.14);
+  border-color: rgba(201, 164, 103, 0.5);
+  color: var(--champ-text-hi);
+}
+.mtag-sep { color: rgba(142, 110, 56, 0.4); }
+
+/* ---------------- 05 3C FDE ---------------- */
+.chain {
+  background: var(--champ-0);
+  border-color: rgba(10, 90, 60, 0.14);
+  box-shadow: 0 24px 54px -46px rgba(7, 58, 33, 0.46);
+}
+.chain:hover { border-color: rgba(201, 164, 103, 0.5); }
+.chain__no { color: var(--gold-600); }
+.chain__title { color: var(--champ-text-hi); }
+.chain__body { color: var(--champ-text-mid); }
+.chain__ask {
+  color: var(--gold-600);
+  border-color: rgba(201, 164, 103, 0.36);
+  background: rgba(201, 164, 103, 0.12);
+}
+.chain__ask::before {
+  background: rgba(201, 164, 103, 0.3);
+  color: var(--gold-700);
+}
+.chain__mark { -webkit-text-stroke-color: rgba(10, 90, 60, 0.12); }
+
+/* ---------------- 收尾 ---------------- */
+.closing {
+  background: var(--champ-2);
+  border-top-color: rgba(142, 110, 56, 0.14);
+}
+.closing__glow {
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.32), transparent 62%);
+}
+.closing__title { color: var(--champ-text-hi); }
+.closing__title .em,
+.closing__sub .em { color: var(--gold-600); font-weight: 600; }
+.closing__sub { color: var(--champ-text-mid); }
+
+/* ---------------- 旧页脚在香槟页隐藏（改用统一页脚） ---------------- */
+[data-palette="champagne"] .footer { display: none; }
+[data-palette="champagne"] .to-top { display: none; }
+
+/* 首屏不再满屏，去掉滚动提示 */
+[data-palette="champagne"] .hero__scrolldown { display: none; }
+
+/* 强调色跟随产品：Smart = 青绿 */
+[data-accent="jade"] .asset__keyline,
+[data-accent="jade"] .chain__ask,
+[data-accent="jade"] .chip {
+  color: var(--accent-2);
+}
+[data-accent="jade"] .asset__keyline::before,
+[data-accent="jade"] .chain__ask::before { color: var(--accent-1); }
+[data-accent="jade"] .asset__glyph { color: var(--accent-2); }
+[data-accent="jade"] .asset__no { -webkit-text-stroke-color: rgba(12, 138, 92, 0.26); }
+[data-accent="jade"] .hold-item__num,
+[data-accent="jade"] .chain__no { color: var(--accent-2); }
+[data-accent="jade"] .matrix-head__count em { color: var(--accent-2); }
+[data-accent="jade"] .mrow__cat i { color: var(--accent-2); }
+[data-accent="jade"] .hero__fig b i { color: var(--accent-2); }
+[data-accent="jade"] .sec__index { color: var(--accent-2); }
+/* 金只留给真正需要「光」的元素 */
+[data-accent="jade"] .em,
+[data-accent="jade"] .asset .em,
+[data-accent="jade"] .why-item .em { color: var(--gold-600); }
