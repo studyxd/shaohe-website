@@ -124,18 +124,32 @@
     const burger = $(".nav-burger");
     const menu = $(".nav-mobile");
     if (burger && menu) {
-      burger.addEventListener("click", () => {
-        const open = menu.classList.toggle("is-open");
+      menu.id = menu.id || "mobile-navigation";
+      burger.setAttribute("aria-controls", menu.id);
+      burger.setAttribute("aria-expanded", "false");
+      function setMenu(open, restoreFocus = false) {
+        menu.classList.toggle("is-open", open);
         burger.classList.toggle("is-open", open);
         document.body.classList.toggle("menu-open", open);
+        burger.setAttribute("aria-expanded", String(open));
+        burger.setAttribute("aria-label", open ? "关闭菜单" : "菜单");
+        if (restoreFocus) burger.focus();
+      }
+      burger.addEventListener("click", () => setMenu(!menu.classList.contains("is-open")));
+      $$("a", menu).forEach((a) => a.addEventListener("click", () => setMenu(false, true)));
+      document.addEventListener("keydown", (event) => {
+        if (!menu.classList.contains("is-open")) return;
+        if (event.key === "Escape") setMenu(false, true);
+        if (event.key === "Tab") {
+          const items = [burger, ...$$("a[href]", menu)];
+          const first = items[0], last = items[items.length - 1];
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
       });
-      $$("a", menu).forEach((a) =>
-        a.addEventListener("click", () => {
-          menu.classList.remove("is-open");
-          burger.classList.remove("is-open");
-          document.body.classList.remove("menu-open");
-        })
-      );
+      window.matchMedia("(min-width: 1021px)").addEventListener("change", (event) => {
+        if (event.matches) setMenu(false);
+      });
     }
   }
 
