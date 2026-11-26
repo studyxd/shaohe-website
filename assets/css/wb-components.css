@@ -367,7 +367,7 @@
 }
 
 .footer__wordmark {
-  margin-top: clamp(20px, 3.5vw, 40px);
+  margin-top: clamp(8px, 1vw, 16px);
   padding-inline: var(--pad);
   line-height: 0.76;
   overflow: hidden;
