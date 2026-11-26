@@ -3,396 +3,214 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F6F0E5">
-<title>勺禾Growing · 让外卖经营闭环自动跑起来</title>
-<meta name="description" content="勺禾Growing把总部的决策，变成每家店的动作；再用每家店的结果，迭代总部的决策。">
+<meta name="theme-color" content="#ffffff">
+<title>勺禾Growing · AI外卖增长引擎</title>
+<meta name="description" content="打造外卖利润增长闭环模型：每日巡检、归因诊断、方案下发、后台执行、回查效果。">
 <link rel="icon" type="image/png" href="../assets/img/logo-mark.png">
-<link rel="stylesheet" href="../assets/css/tokens.css">
-<link rel="stylesheet" href="../assets/css/base.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/champagne.css">
-<link rel="stylesheet" href="../assets/css/goldfx.css">
-<link rel="stylesheet" href="../assets/css/growing.css">
-<link rel="stylesheet" href="../assets/css/growing-champagne.css">
+<link rel="stylesheet" href="../assets/css/wb-tokens.css">
+<link rel="stylesheet" href="../assets/css/wb-base.css">
+<link rel="stylesheet" href="../assets/css/wb-components.css">
+<link rel="stylesheet" href="../assets/css/wb-pages.css">
 </head>
-<body data-page="growing" data-theme="growing" data-palette="champagne" data-accent="olive">
-<header class="nav pal-nav">
-  <div class="nav-inner">
-    <a class="logo" href="../"><span class="logo-mark" aria-hidden="true">
-        <img src="../assets/img/logo-mark.png" alt="" width="512" height="512" decoding="async">
-      </span>勺禾</a>
-    <nav class="nav-links" aria-label="章节导航">
-      <a class="nav-link" href="#sec-chain">一条链路</a>
-      <a class="nav-link" href="#sec-break">三个断点</a>
-      <a class="nav-link" href="#sec-data">数据长进链路</a>
-      <a class="nav-link" href="#sec-action">动作长进链路</a>
-      <a class="nav-link" href="#sec-exp">经验长进链路</a>
-      <a class="nav-link" href="#sec-platforms">覆盖平台</a>
+<body data-accent="olive">
+<header class="nav">
+  <div class="nav__inner">
+    <a class="logo" href="../"><img src="../assets/img/logo-mark.png" alt="" width="512" height="512">勺禾</a>
+    <nav class="nav__links">
+      <a class="nav__link" href="../">首页</a>
+      <a class="nav__link" href="../smart/">勺禾Smart</a>
+      <a class="nav__link active" href="../growing/">勺禾Growing</a>
+      <a class="nav__link" href="#recruit">试点招募</a>
     </nav>
-    <a class="nav-link" href="#recruit">试点招募</a>
-    <a class="nav-switch" href="../smart/">勺禾Smart</a>
-    <button class="nav-burger" aria-label="菜单"><span></span><span></span></button>
-    <div class="nav-progress" aria-hidden="true"></div>
+    <a class="btn nav__cta" href="#recruit">参与试点</a>
+    <button class="nav__burger" aria-label="菜单"><span></span><span></span></button>
   </div>
 </header>
-<nav class="nav-mobile pal-nav-mobile" aria-label="移动端导航">
-  <a href="#sec-chain"><span class="mono">01</span>一条链路</a>
-  <a href="#sec-break"><span class="mono">02</span>三个断点</a>
-  <a href="#sec-data"><span class="mono">03</span>数据长进链路</a>
-  <a href="#sec-action"><span class="mono">04</span>动作长进链路</a>
-  <a href="#sec-exp"><span class="mono">05</span>经验长进链路</a>
-  <a href="#sec-platforms"><span class="mono">06</span>覆盖平台</a>
-  <a href="#recruit"><span class="mono">06</span>试点招募</a>
-  <a href="../smart/" class="nav-mobile__other">勺禾Smart</a>
+<nav class="nav__drawer" aria-label="移动端导航">
+  <a href="../">首页</a>
+  <a href="../smart/">勺禾Smart</a>
+  <a href="../growing/">勺禾Growing</a>
+  <a href="#recruit">试点招募</a>
 </nav>
-<main>
-<section class="g-hero" id="top">
-  <div class="g-hero__bg" aria-hidden="true">
-    <div class="g-hero__media" data-parallax="0.7"></div>
-    <div class="g-hero__veil"></div>
-    <div class="g-hero__flow">
-      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-        <path d="M-60 640C240 640 320 300 620 300S1000 560 1180 460 1380 180 1520 180"/>
-        <path d="M-60 720C280 720 380 400 700 400s400 210 560 130 200-190 320-190"/>
-        <path d="M-60 560C200 560 260 210 560 210s420 300 620 220 220-220 380-220"/>
-      </svg>
-    </div>
-    <div class="floaters" data-floaters></div>
-  </div>
-  <div class="wrap g-hero__inner">
-    <div class="g-hero__top">
-      <span class="g-hero__product">勺禾Growing</span>
-      <span class="g-hero__badge"><span class="dot"></span>外卖增长专家</span>
-    </div>
-    <h1 class="g-hero__title"><span data-split-text style="display:block;overflow:hidden">让外卖经营闭环自动跑起来。</span></h1>
-    <div class="g-hero__grid" data-reveal style="--reveal-delay:100ms">
-      <p>外卖经营最难的不是缺少策略，是让策略在每一家店都能精准落地。</p>
-      <p>勺禾Growing把总部的决策，变成每家店的动作；再用每家店的结果，迭代总部的决策</p>
-    </div>
-    <div class="g-hero__foot" data-reveal style="--reveal-delay:200ms">
-      <a class="g-btn g-btn--solid" href="#sec-chain">查看一条链路 <span>→</span></a>
-      <div class="g-hero__figs">
-        <div class="g-hero__fig">
-          <b><span data-count="7">7</span><i>大</i></b>
-          <span>场景数据直采</span>
-        </div>
-        <div class="g-hero__fig">
-          <b><span data-count="29">29</span><i>项</i></b>
-          <span>产品能力</span>
-        </div>
-        <div class="g-hero__fig">
-          <b><span data-count="52">52</span><i>项</i></b>
+<main><section class="phero">
+  <div class="container">
+    <div class="phero__inner">
+      <div class="phero__meta" data-reveal>勺禾Growing · AI外卖增长引擎</div>
+      <h1 class="phero__title" data-reveal style="--d:50ms">AI外卖增长引擎<span class="l2">打造外卖利润增长闭环模型</span></h1>
+      <p class="phero__desc" data-reveal style="--d:100ms">勺禾Growing让外卖增长实现可<em class="em">自动运转的闭环</em>：每日巡检、归因诊断、方案下发、后台执行、回查效果。8大场景、58 项巡检覆盖全量门店，增长不再靠人抽查、不再凭经验拍板，让动作落到人、让效果可<em class="em">衡量</em>。</p>
+      <div class="phero__actions" data-reveal style="--d:140ms">
+        <a class="btn btn--md" href="#loop">查看增长闭环</a>
+        <a class="btn btn--md btn--outline" href="#recruit">参与试点招募</a>
+      </div>
+      <div class="phero__stats">
+        <div class="phero__stat" data-reveal style="--d:160ms">
+          <b><span data-count="8">8</span><i>大</i></b>
+          <span>场景维度</span>
+        </div><div class="phero__stat" data-reveal style="--d:210ms">
+          <b><span data-count="58">58</span><i>项</i></b>
           <span>经营巡检</span>
+        </div><div class="phero__stat" data-reveal style="--d:260ms">
+          <b><span data-count="6">6</span><i>项</i></b>
+          <span>归因因子</span>
+        </div><div class="phero__stat" data-reveal style="--d:310ms">
+          <b><span data-count="12">12</span><i>类</i></b>
+          <span>任务模板</span>
         </div>
       </div>
     </div>
   </div>
-</section>
-<section class="g-sec g-sec--paper" id="sec-chain">
-  <div class="wrap">
-    <div class="g-sec__head">
-      <div>
-        <div class="g-sec__index" data-reveal>Chapter 01</div>
-        <h2 class="g-sec__title" data-reveal style="--reveal-delay:80ms">一条链路</h2>
+</section><section class="psec" id="loop"><div class="container">
+    <div class="psec__head">
+      <div class="psec__label" data-reveal>CHAPTER 01</div>
+      <h2 class="psec__title" data-reveal style="--d:50ms">增长，从一个自动巡检整改的闭环开始</h2>
+    </div>
+    <div class="loop">
+      <article class="loop__step" data-reveal style="--d:0ms">
+        <div class="loop__top">
+          <span class="loop__no">01</span>
+          <h3 class="loop__title">每日巡检·<em class="em">发现问题</em>：</h3>
+        </div>
+        <p class="loop__body">按商品、经营、营业、推广、活动、评价、服务、风险8大维度，每日全量扫描，异常清单自动输出，严重项优先排序。</p>
+      </article><div class="loop__arrow" aria-hidden="true">→</div><article class="loop__step" data-reveal style="--d:60ms">
+        <div class="loop__top">
+          <span class="loop__no">02</span>
+          <h3 class="loop__title">归因诊断·<em class="em">找到症结</em>：</h3>
+        </div>
+        <p class="loop__body">对异常门店做六因子归因——曝光、进店、下单、客单、履约、复购，拆出贡献度与最大拖累项，先改最该改的。</p>
+      </article><div class="loop__arrow" aria-hidden="true">→</div><article class="loop__step" data-reveal style="--d:120ms">
+        <div class="loop__top">
+          <span class="loop__no">03</span>
+          <h3 class="loop__title">执行优化·闭环<em class="em">回路</em>：</h3>
+        </div>
+        <p class="loop__body">每条异常都可指派责任人、设截止时间、超时自动升级；执行后回查效果，无效则回滚，问题不反复。</p>
+      </article>
+    </div>
+  </div></section><section class="psec" id="task"><div class="container">
+    <div class="psec__head">
+      <div class="psec__label" data-reveal>CHAPTER 02</div>
+      <h2 class="psec__title" data-reveal style="--d:50ms">从<em class="em">「人找功能」</em>到<em class="em">「任务找人」</em></h2>
+    </div>
+    <div class="cards-3">
+      <article class="feat" data-reveal style="--d:0ms">
+        <span class="feat__kicker">任务调度：</span>
+        <p class="feat__body">巡检发现的问题自动生成待办，推送到店长手边；12 类任务模板覆盖巡检、诊断、评价回复、日报周报与月度复盘。</p>
+      </article><article class="feat" data-reveal style="--d:55ms">
+        <span class="feat__kicker">差异执行：</span>
+        <p class="feat__body">同一品牌下，按区域、城市、店型下发差异化方案，阈值可按区域自定义，新店保护期、装修停业门店自动豁免。</p>
+      </article><article class="feat" data-reveal style="--d:110ms">
+        <span class="feat__kicker">协同留痕：</span>
+        <p class="feat__body">企微、钉钉、飞书、微信群机器人推送异常与待办，消息卡片可直接确认执行、驳回或转派，全程留痕。</p>
+      </article>
+    </div>
+  </div></section><section class="psec" id="cap"><div class="container">
+    <div class="psec__head">
+      <div class="psec__label" data-reveal>CHAPTER 03</div>
+      <h2 class="psec__title" data-reveal style="--d:50ms">增长能力，覆盖经营的每一个环节</h2>
+    </div>
+    <div class="cards-2">
+      <article class="cap" data-reveal style="--d:0ms">
+        <h3 class="cap__title">商品与菜单：</h3>
+        <p class="cap__body">监控商品下架、售罄、缺图与价格异常；按引流品／利润品／形象品／凑单品诊断结构缺口；批量改价改图、一键回滚。</p>
+      </article><article class="cap" data-reveal style="--d:55ms">
+        <h3 class="cap__title">评价与口碑：</h3>
+        <p class="cap__body">多平台评价聚合，智能回复与差评申诉自动生成材料；差评按口味、分量、包装、配送、食安归因，异常订单与卡餐实时预警。</p>
+      </article><article class="cap" data-reveal style="--d:0ms">
+        <h3 class="cap__title">用户与增长：</h3>
+        <p class="cap__body">客群按新老复购分层，流失分析与人群去向洞察可一键转成营销活动，并设定验证周期。</p>
+      </article><article class="cap" data-reveal style="--d:55ms">
+        <h3 class="cap__title">策略与报告：</h3>
+        <p class="cap__body">价格带、配送距离与平台费用分布、阶梯起送价建议、变动利润率看板；日报周报月报与汇报 PPT 一键生成，每份报告绑定数据快照，数字随时可对。</p>
+      </article>
+    </div>
+  </div></section><section class="psec" id="law"><div class="container">
+    <div class="psec__head">
+      <div class="psec__label" data-reveal>CHAPTER 04</div>
+      <h2 class="psec__title" data-reveal style="--d:50ms">勺智外卖闭环增长法则，让增长持续发生</h2>
+    </div>
+    <div class="law">
+      <div class="law__item" data-reveal style="--d:0ms">
+        <div class="law__num">01</div>
+        <h3 class="law__title">一个北极星：</h3>
+        <p class="law__body">逐单优化边际利润，提升增量ROI，不再以曝光、点击、转化为终点。</p>
+      </div><div class="law__item" data-reveal style="--d:55ms">
+        <div class="law__num">02</div>
+        <h3 class="law__title">两条执行边界：</h3>
+        <p class="law__body">不透支利润、不放过机会，涉及资金的动作由人拍板，系统只做边界内的执行。</p>
+      </div><div class="law__item" data-reveal style="--d:110ms">
+        <div class="law__num">03</div>
+        <h3 class="law__title">四步闭环：</h3>
+        <p class="law__body">巡检 → 归因 → 执行 → 回查。每一步有依据、有版本、有结果，可导出、可审计、可回滚。</p>
       </div>
     </div>
-    <div class="chainflow">
-      <article class="chstep spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:0ms">
-        <span class="chstep__no">01</span>
-        <h3 class="chstep__key">判断<span class="chstep__arrow">→</span></h3>
-        <div class="chstep__sub"><span>总部看全局</span><span>月度经营决策</span></div>
-        <span class="sr-only">判断：总部看全局，月度经营决策</span>
-      </article>
-      <article class="chstep spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:90ms">
-        <span class="chstep__no">02</span>
-        <h3 class="chstep__key">动作<span class="chstep__arrow">→</span></h3>
-        <div class="chstep__sub"><span>拆到每家店</span><span>落地执行</span></div>
-        <span class="sr-only">动作：拆到每家店，落地执行</span>
-      </article>
-      <article class="chstep spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:180ms">
-        <span class="chstep__no">03</span>
-        <h3 class="chstep__key">结果<span class="chstep__arrow">→</span></h3>
-        <div class="chstep__sub"><span>业绩如何</span><span>有没有涨</span></div>
-        <span class="sr-only">结果：业绩如何，有没有涨</span>
-      </article>
-      <article class="chstep spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:270ms">
-        <span class="chstep__no">04</span>
-        <h3 class="chstep__key">再判断</h3>
-        <div class="chstep__sub"><span>结果回流</span><span>修正</span></div>
-        <span class="sr-only">再判断：结果回流，修正</span>
-      </article>
+    <div class="law__flow" data-reveal style="--d:180ms">
+      <span>巡检</span><b class="law__arrow">→</b><span>归因</span><b class="law__arrow">→</b><span>执行</span><b class="law__arrow">→</b><span>回查</span>
     </div>
-    <div class="chainflow__bar" data-reveal style="--reveal-delay:180ms">
-      <span>总部定目标</span><b class="flow-arrow">→</b><span>专家团出方案</span><b class="flow-arrow">→</b><span>门店确认与执行</span><b class="flow-arrow">→</b><span>跟踪结果</span><b class="flow-arrow">→</b><span>反馈调优</span>
-    </div>
-  </div>
-</section>
-<section class="g-sec g-sec--alt" id="sec-break">
-  <div class="wrap">
-    <div class="g-sec__head">
-      <div>
-        <div class="g-sec__index" data-reveal>Chapter 02</div>
-        <h2 class="g-sec__title" data-reveal style="--reveal-delay:80ms">为什么用了AI，门店经营还是老样子</h2>
+  </div></section><section class="closing"><div class="container">
+    <div class="closing__inner">
+      <h2 class="closing__title" data-reveal>让AI能力真正成为品牌增长资产</h2>
+      <p class="closing__desc" data-reveal style="--d:50ms">助力中国餐饮企业，握住AI时代的增长主权</p>
+      <div class="closing__actions" data-reveal style="--d:100ms">
+        <a class="btn btn--md" href="../smart/">进入 勺禾Smart</a>
+        <a class="btn btn--md btn--outline" href="../">返回首页</a>
       </div>
     </div>
-    <div class="breaks">
-      <article class="brk gold-edge glow-follow" data-reveal style="--reveal-delay:0ms">
-        <div class="brk__left">
-          <span class="brk__label"><em>01</em>断点一</span>
-          <h3 class="brk__title">AI看不到全貌</h3>
-        </div>
-        <div class="brk__right">
-          <p class="brk__body">信息散在多个环节和系统里，AI 拿不到完整上下文。给的建议永远「正确，但用不上」——因为它不知道你上个月刚调过价，也不知道隔壁商圈在打价格战。</p>
-          <span class="brk__quote">正确，但用不上</span>
-        </div>
-      </article>
-      <article class="brk gold-edge glow-follow" data-reveal style="--reveal-delay:90ms">
-        <div class="brk__left">
-          <span class="brk__label"><em>02</em>断点二</span>
-          <h3 class="brk__title">人在给AI打工</h3>
-        </div>
-        <div class="brk__right">
-          <p class="brk__body">AI 出方案，落地靠人。涉及大规模门店配置和差异化执行时，最后还是逐店推进、电话催办——闭环跑不起来，效率提升停在个人身上。</p>
-          <span class="brk__quote">闭环跑不起来</span>
-        </div>
-      </article>
-      <article class="brk gold-edge glow-follow" data-reveal style="--reveal-delay:180ms">
-        <div class="brk__left">
-          <span class="brk__label"><em>03</em>断点三</span>
-          <h3 class="brk__title">学的还是老经验</h3>
-        </div>
-        <div class="brk__right">
-          <p class="brk__body">只有品牌自有数据，AI 只是把原有经营水平跑得更快，突破不了上限。</p>
-          <span class="brk__quote">突破不了上限</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="g-statement">
-  <div class="g-statement__glow" aria-hidden="true"></div>
-  <div class="g-statement__rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-  <div class="wrap-narrow">
-    <h2 class="g-statement__text" data-reveal>勺禾Growing不应该长在<span class="hl">对话框</span>里，应该长在<span class="hl">经营链路</span>里</h2>
-  </div>
-</section>
-<section class="g-sec g-sec--paper">
-  <div class="wrap">
-    <div class="glinks">
-      <article class="glink" id="sec-data">
-        <div class="glink__aside">
-          <div class="glink__num" data-reveal>
-            <b>03</b>
-            <span>数据长进链路</span>
-          </div>
-          <h2 class="glink__title" data-reveal style="--reveal-delay:80ms">一、数据长进链路：看到的是<em class="em">门店实际经营过程</em>，不是一张报表</h2>
-        </div>
-        <div class="glink__items">
-          <div class="gitem" data-reveal style="--reveal-delay:0ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>7大场景数据直采：</div>
-            <p class="gitem__text"><em class="em">经营 / 流量 / 商品 / 营销 / </em><em class="em">推广</em> / 评价 / 食安。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:70ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>29 项能力：</div>
-            <p class="gitem__text">从经营诊断、商品策略、批量执行、评价口碑，到竞争情报、知识问答、装修视觉。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:140ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>52项巡检：</div>
-            <p class="gitem__text">商品<em class="em">售罄</em>、主图缺失、营业状态、推广<em class="em">效果</em>、活动配置、店铺分、待回复评价、食安负反馈，一次跑完。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:210ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>数据实时、口径清晰：</div>
-            <p class="gitem__text"><em class="em">实时 / </em><em class="em">每日 </em>/ <em class="em">每周 / 每月</em><em class="em">快照，</em>四种时效标清楚；数据缺失如实降级，不猜、不补。</p>
-          </div>
-        </div>
-      </article>
-      <article class="glink" id="sec-action">
-        <div class="glink__aside">
-          <div class="glink__num" data-reveal>
-            <b>04</b>
-            <span>动作长进链路</span>
-          </div>
-          <h2 class="glink__title" data-reveal style="--reveal-delay:80ms">二、动作长进链路：不只是告诉你<em class="em">为什么改，替你</em><em class="em">改完</em>并<em class="em">给你回执</em></h2>
-        </div>
-        <div class="glink__items">
-          <div class="gitem" data-reveal style="--reveal-delay:0ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span><em class="em">批量</em>操作：</div>
-            <p class="gitem__text">批量改<em class="em">菜</em>名、改描述、换主图、调排序、建分组、调分组顺序、评价回复、评价申诉、装修换装、主图替换。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:70ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>铁律一：先<em class="em">预览</em>。</div>
-            <p class="gitem__text"><em class="em">修改</em><em class="em">范围</em>、<em class="em">修改动作</em>、<em class="em">修改目的</em>。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:140ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>铁律二：<em class="em">确认后再操作</em>。</div>
-            <p class="gitem__text">批量操作确认<em class="em">后执行</em>。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:210ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>铁律三：失败即停、<em class="em">记录</em>可查。</div>
-            <p class="gitem__text">出错立刻停，进度随时查。</p>
-          </div>
-        </div>
-      </article>
-      <article class="glink" id="sec-exp">
-        <div class="glink__aside">
-          <div class="glink__num" data-reveal>
-            <b>05</b>
-            <span>经验长进链路</span>
-          </div>
-          <h2 class="glink__title" data-reveal style="--reveal-delay:80ms">三、经验长进链路：<em class="em">越用越聪明</em></h2>
-        </div>
-        <div class="glink__items">
-          <div class="gitem" data-reveal style="--reveal-delay:0ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span><em class="em">行业</em>knowhow：</div>
-            <p class="gitem__text">规则、口径、话术、历史动作，都<em class="em">沉淀在企业内部</em>。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:70ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span>竞争<em class="em">应对</em>：</div>
-            <p class="gitem__text"><em class="em">面对竞争，</em>客群、菜单、销售结构差异，一眼可比。</p>
-          </div>
-          <div class="gitem" data-reveal style="--reveal-delay:140ms">
-            <div class="gitem__lead"><span class="gitem__dot">·</span><em class="em">SOP 随结果迭代</em>：</div>
-            <p class="gitem__text"><em class="em">投流策略升级、</em>菜单结构优化、装修风格迭代、评价回复与申诉口径，每一次执行都在<em class="em">提升能力水平</em>。</p>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="g-sec g-sec--alt" id="sec-platforms">
-  <div class="wrap">
-    <div class="g-sec__head">
-      <div>
-        <div class="g-sec__index" data-reveal>Chapter 06</div>
-        <h2 class="g-sec__title" data-reveal style="--reveal-delay:80ms">覆盖美团外卖、淘宝闪购、京东秒送三个平台</h2>
+  </div></section><div class="container"><p class="page-note" data-reveal>注：本页面所示服务能力以实际接入与验证结果为准；效果表述不含绝对金额承诺，观察窗口与干扰因素同步记录。经营数据仅用于为您自己的门店做计算与执行。</p></div></main>
+<section class="recruit" id="recruit">
+  <div class="container">
+    <div class="recruit__head">
+      <h2 class="recruit__title" data-reveal>首批试点品牌招募中。</h2>
+      <p class="recruit__desc" data-reveal style="--d:60ms">留下信息，我们会在 48 小时内与您联系，并在保密协议前提下安排一次业务调研。</p>
+      <div class="recruit__plats" data-reveal style="--d:100ms">
+        <span class="recruit__plats-label">覆盖平台</span>
+        <span class="plat-chip"><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/meituan.webp" type="image/webp"><img src="../assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>美团外卖</span><span class="plat-chip"><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/taobao.webp" type="image/webp"><img src="../assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>淘宝闪购</span><span class="plat-chip"><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/jd.webp" type="image/webp"><img src="../assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>京东秒送</span>
       </div>
     </div>
-    <div class="platforms">
-      <article class="pf spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:0ms">
-        <div class="pf__top">
-          <span class="pf__mark "><span class="plat-mark plat-mark--lg" aria-hidden="true"><picture><source srcset="../assets/img/plat/meituan.webp" type="image/webp"><img src="../assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span></span>
-          <span class="pf__idx">01</span>
-        </div>
-        <h3 class="pf__name">美团外卖</h3>
-      </article>
-      <article class="pf spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:90ms">
-        <div class="pf__top">
-          <span class="pf__mark "><span class="plat-mark plat-mark--lg" aria-hidden="true"><picture><source srcset="../assets/img/plat/taobao.webp" type="image/webp"><img src="../assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span></span>
-          <span class="pf__idx">02</span>
-        </div>
-        <h3 class="pf__name">淘宝闪购</h3>
-      </article>
-      <article class="pf spotlight shine gold-edge glow-follow" data-reveal style="--reveal-delay:180ms">
-        <div class="pf__top">
-          <span class="pf__mark "><span class="plat-mark plat-mark--lg" aria-hidden="true"><picture><source srcset="../assets/img/plat/jd.webp" type="image/webp"><img src="../assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span></span>
-          <span class="pf__idx">03</span>
-        </div>
-        <h3 class="pf__name">京东秒送</h3>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="g-closing">
-  <div class="g-closing__glow" aria-hidden="true"></div>
-  <div class="wrap g-closing__inner">
-    <span class="g-closing__name" data-reveal>勺禾Growing</span>
-    <h2 class="g-closing__title" data-reveal style="--reveal-delay:100ms">用一次是效率，<em class="em">用一年是资产</em></h2>
-    <div class="g-closing__cta" data-reveal style="--reveal-delay:200ms">
-      <a class="g-btn g-btn--solid" href="../smart/">进入 勺禾Smart <span>→</span></a>
-      <a class="g-btn" href="../">返回首页</a>
-    </div>
-  </div>
-</section>
-</main>
-<section class="enroll-block" id="recruit">
-  <div class="enroll-block__glow" aria-hidden="true"></div>
-  <div class="wrap enroll-block__inner">
-    <div class="enroll-head">
-      <div class="champ-index" data-reveal>试点招募</div>
-      <h2 class="enroll-head__title" data-reveal style="--reveal-delay:80ms">首批试点品牌招募中。</h2>
-      <p class="enroll-head__lead" data-reveal style="--reveal-delay:140ms">留下信息，我们会在 48 小时内与您联系，并在保密协议前提下安排一次业务调研。</p>
-      <div class="enroll-plats" data-reveal>
-      <span class="enroll-plats__label">覆盖平台</span>
-      <span class="enroll-plat"><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/meituan.webp" type="image/webp"><img src="../assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>美团外卖</span>
-      <span class="enroll-plat"><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/taobao.webp" type="image/webp"><img src="../assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>淘宝闪购</span>
-      <span class="enroll-plat"><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/jd.webp" type="image/webp"><img src="../assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>京东秒送</span>
-    </div>
-    </div>
-    <form class="enroll-form" data-reveal style="--reveal-delay:200ms" novalidate>
-      <div class="enroll-form__row">
-        <div class="ef">
-          <label class="ef__label" for="growing-brand">品牌名称</label>
-          <input id="growing-brand" name="brand" type="text" placeholder="如：某某餐饮" autocomplete="organization">
-        </div>
-        <div class="ef">
-          <label class="ef__label" for="growing-contact">对接人姓名</label>
-          <input id="growing-contact" name="contact" type="text" placeholder="请输入姓名" autocomplete="name">
+    <form class="form" data-reveal style="--d:140ms" novalidate>
+      <div class="form__row">
+        <div class="field"><label class="field__label" for="growing-brand">品牌名称</label>
+          <input id="growing-brand" name="brand" type="text" placeholder="如：某某餐饮" autocomplete="organization"></div>
+        <div class="field"><label class="field__label" for="growing-contact">对接人姓名</label>
+          <input id="growing-contact" name="contact" type="text" placeholder="请输入姓名" autocomplete="name"></div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label class="field__label" for="growing-stores">在营门店数</label>
+          <input id="growing-stores" name="stores" type="text" inputmode="numeric" placeholder="如：120 家"></div>
+        <div class="field"><label class="field__label" for="growing-phone">联系电话</label>
+          <input id="growing-phone" name="phone" type="tel" inputmode="tel" placeholder="请输入手机号" autocomplete="tel"></div>
+      </div>
+      <div class="field field--checks">
+        <span class="field__label">入驻外卖平台（可多选）</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="platform" value="美团外卖" checked><span class="check__box" aria-hidden="true"></span><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/meituan.webp" type="image/webp"><img src="../assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span><span>美团外卖</span></label><label class="check"><input type="checkbox" name="platform" value="淘宝闪购"><span class="check__box" aria-hidden="true"></span><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/taobao.webp" type="image/webp"><img src="../assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span><span>淘宝闪购</span></label><label class="check"><input type="checkbox" name="platform" value="京东秒送"><span class="check__box" aria-hidden="true"></span><span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/jd.webp" type="image/webp"><img src="../assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span><span>京东秒送</span></label>
         </div>
       </div>
-      <div class="enroll-form__row">
-        <div class="ef">
-          <label class="ef__label" for="growing-stores">在营门店数</label>
-          <input id="growing-stores" name="stores" type="text" inputmode="numeric" placeholder="如：120 家">
-        </div>
-        <div class="ef">
-          <label class="ef__label" for="growing-phone">联系电话</label>
-          <input id="growing-phone" name="phone" type="tel" inputmode="tel" placeholder="请输入手机号" autocomplete="tel">
-        </div>
-      </div>
-      <div class="ef ef--choice">
-        <span class="ef__label">入驻外卖平台（可多选）</span>
-        <div class="ef__choices">
-          <label class="ef-choice">
-            <input type="checkbox" name="platform" value="美团外卖" checked>
-            <span class="ef-choice__box" aria-hidden="true"></span>
-            <span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/meituan.webp" type="image/webp"><img src="../assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>
-            <span>美团外卖</span>
-          </label>
-          <label class="ef-choice">
-            <input type="checkbox" name="platform" value="淘宝闪购">
-            <span class="ef-choice__box" aria-hidden="true"></span>
-            <span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/taobao.webp" type="image/webp"><img src="../assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>
-            <span>淘宝闪购</span>
-          </label>
-          <label class="ef-choice">
-            <input type="checkbox" name="platform" value="京东秒送">
-            <span class="ef-choice__box" aria-hidden="true"></span>
-            <span class="plat-mark" aria-hidden="true"><picture><source srcset="../assets/img/plat/jd.webp" type="image/webp"><img src="../assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>
-            <span>京东秒送</span>
-          </label>
-        </div>
-      </div>
-      <div class="enroll-form__foot">
-        <button class="gold-btn" type="submit">确认开启 AI 增长之旅 <span class="gold-btn__arrow">→</span></button>
-        <span class="enroll-form__ok" role="status">已收到您的信息，我们会尽快与您联系。</span>
-        <p class="enroll-form__note">提交即表示同意我们就本次体验与您联系，信息不用于其他用途。</p>
+      <div class="form__foot">
+        <button class="btn" type="submit">确认开启 AI 增长之旅</button>
+        <span class="form__ok" role="status">已收到您的信息，我们会尽快与您联系。</span>
+        <p class="form__note">提交即表示同意我们就本次体验与您联系，信息不用于其他用途。</p>
       </div>
     </form>
   </div>
 </section>
-<footer class="champ-footer">
-  <div class="wrap">
-    <div class="champ-footer__top">
-      <div class="champ-footer__brand">
-        <a class="logo" href="../"><span class="logo-mark" aria-hidden="true">
-        <img src="../assets/img/logo-mark.png" alt="" width="512" height="512" decoding="async">
-      </span>勺禾</a>
-        <div class="champ-footer__company">勺智（北京）科技有限公司<span>SpoonGrowing</span></div>
-        <p class="champ-footer__desc">勺禾AI·外卖增长专家是勺智科技旗下面向餐饮品牌外卖推广投放的增长系统。覆盖美团外卖、淘宝闪购、京东秒送三个平台。</p>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="footer__logo" href="../"><img src="../assets/img/logo-mark.png" alt="" width="512" height="512">勺禾</a>
+        <p class="footer__desc">勺禾AI·外卖增长专家是勺智科技旗下面向餐饮品牌外卖推广投放的增长系统。覆盖美团外卖、淘宝闪购、京东秒送三个平台。</p>
       </div>
-      <div class="champ-footer__note">
-        <span>本页面所示服务能力与平台对接方式，以实际接入与验证结果为准。</span><span>效果表述不含绝对金额承诺，观察窗口与干扰因素同步记录。</span>
-      </div>
+      <nav class="footer__cols">
+        <div class="footer__col"><h4 class="footer__col-title">服务条款</h4><a class="footer__link" href="../terms/">用户协议</a><a class="footer__link" href="../privacy/">隐私协议</a></div><div class="footer__col"><h4 class="footer__col-title">联系我们</h4><a class="footer__link" href="../feedback/">建议反馈</a><a class="footer__link" href="#recruit">售前咨询</a></div>
+      </nav>
     </div>
-    <div class="champ-footer__bottom">
-      <span>勺智（北京）科技有限公司</span>
-      <span>SpoonGrowing · AI</span>
+    <div class="footer__legal">
+      <p class="footer__copy">版权 © 2026 勺智（北京）科技有限公司 版权所有</p>
+      <div class="footer__contact"><span>联系电话：400-000-0000</span><span>北京市朝阳区（以实际办公地址为准）</span></div>
     </div>
   </div>
+  <div class="footer__wordmark" aria-hidden="true"><span>SPOON GROWING</span></div>
 </footer>
-<button class="pal-top" aria-label="返回顶部">
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
-</button>
-  <script src="../assets/js/engine.js" defer></script>
+<button class="to-top" aria-label="返回顶部"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
+<script src="../assets/js/wb.js" defer></script>
 </body>
 </html>
