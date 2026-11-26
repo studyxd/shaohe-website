@@ -367,9 +367,10 @@
 }
 
 .footer__wordmark {
-  margin-top: clamp(8px, 1vw, 16px);
+  margin-top: 0;
   padding-inline: var(--pad);
-  line-height: 0.76;
+  padding-bottom: clamp(28px, 3vw, 44px);
+  line-height: 1;
   overflow: hidden;
   user-select: none;
   pointer-events: none;
@@ -382,7 +383,7 @@
   white-space: nowrap;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
-  transform: translateY(9%);
+  transform: none;
 }
 
 @media (max-width: 900px) {
