@@ -3,251 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F6F0E5">
+<meta name="theme-color" content="#ffffff">
 <title>勺禾 · 连锁餐饮的 AI 经营伙伴</title>
 <meta name="description" content="勺禾Smart — 企业级 AI 中台基座；勺禾Growing — 外卖增长专家。">
-<link rel="icon" type="image/png" href="assets/img/logo-mark.png">
-<link rel="stylesheet" href="assets/css/tokens.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/components.css">
-<link rel="stylesheet" href="assets/css/champagne.css">
-<link rel="stylesheet" href="assets/css/goldfx.css">
-<link rel="stylesheet" href="assets/css/home.css">
+<link rel="icon" type="image/png" href="./assets/img/logo-mark.png">
+<link rel="stylesheet" href="./assets/css/wb-tokens.css">
+<link rel="stylesheet" href="./assets/css/wb-base.css">
+<link rel="stylesheet" href="./assets/css/wb-components.css">
+<link rel="stylesheet" href="./assets/css/wb-pages.css">
 </head>
-<body data-theme="home" data-palette="champagne" data-accent="jade">
-
-<div class="champ-bg" aria-hidden="true">
-  <div class="champ-bg__blob champ-bg__blob--a glow-pulse" data-parallax="0.8"></div>
-  <div class="champ-bg__blob champ-bg__blob--b glow-pulse" data-parallax="0.8"></div>
-  <div class="champ-bg__grid" data-parallax="0.3"></div>
-  <div class="floaters" data-floaters></div>
-</div>
-
-<header class="pal-nav nav">
-  <div class="nav-inner">
-    <a class="logo" href="./"><span class="logo-mark" aria-hidden="true">
-        <img src="./assets/img/logo-mark.png" alt="" width="512" height="512" decoding="async">
-      </span>勺禾</a>
-    <nav class="nav-links" aria-label="产品">
-      <a class="nav-link" href="smart/">勺禾Smart</a>
-      <a class="nav-link" href="growing/">勺禾Growing</a>
-      <a class="nav-link" href="#recruit">试点招募</a>
+<body data-accent="jade">
+<header class="nav">
+  <div class="nav__inner">
+    <a class="logo" href="./"><img src="./assets/img/logo-mark.png" alt="" width="512" height="512">勺禾</a>
+    <nav class="nav__links">
+      <a class="nav__link active" href="./">首页</a>
+      <a class="nav__link" href="smart/">勺禾Smart</a>
+      <a class="nav__link" href="growing/">勺禾Growing</a>
+      <a class="nav__link" href="#recruit">试点招募</a>
     </nav>
-    <a class="gold-btn" href="#recruit" style="padding:10px 20px;font-size:13.5px">参与试点 <span class="gold-btn__arrow">→</span></a>
-    <button class="nav-burger" aria-label="菜单"><span></span><span></span></button>
-    <div class="nav-progress" aria-hidden="true"></div>
+    <a class="btn nav__cta" href="#recruit">参与试点</a>
+    <button class="nav__burger" aria-label="菜单"><span></span><span></span></button>
   </div>
 </header>
-<nav class="nav-mobile pal-nav-mobile" aria-label="移动端导航">
-  <a href="smart/"><span class="mono">01</span>勺禾Smart</a>
-  <a href="growing/"><span class="mono">02</span>勺禾Growing</a>
-  <a href="#recruit"><span class="mono">03</span>试点招募</a>
+<nav class="nav__drawer" aria-label="移动端导航">
+  <a href="./">首页</a>
+  <a href="smart/">勺禾Smart</a>
+  <a href="growing/">勺禾Growing</a>
+  <a href="#recruit">试点招募</a>
 </nav>
+<main>
+  <section class="home">
+    <div class="container">
+      <div class="home__hero">
+        <h1 class="home__title" data-reveal>连锁餐饮的<br><span class="accent">AI 经营伙伴</span></h1>
+        <p class="home__desc" data-reveal style="--d:60ms">从总部经营到门店执行，提供覆盖全链路的 AI 解决方案</p>
+        <div class="home__actions" data-reveal style="--d:120ms">
+          <a class="btn btn--md" href="#recruit">参与试点招募</a>
+          <a class="btn btn--md btn--outline" href="#products">了解产品</a>
+        </div>
+      </div>
 
-<main class="home" style="position:relative;z-index:1">
-  <div class="wrap">
-    <div class="home-head">
-      <h1 class="home-head__title">
-        连锁餐饮的<br><span class="accent gold-breathe">AI 经营伙伴</span>
-      </h1>
-      <div class="home-head__aside">
-        <span class="home-head__sub">从总部经营到门店执行，提供覆盖全链路的 AI 解决方案</span>
-        <span class="home-head__scroll">选择你的起点 <i></i></span>
+      <div class="home__grid" id="products">
+        
+        <a class="prod" href="smart/" data-accent="jade" data-reveal style="--d:160ms">
+          <div class="prod__top">
+            <span class="prod__num">01</span>
+            <span class="prod__name-sm">勺禾Smart</span>
+            <span class="prod__tag">企业级 AI 中台基座</span>
+          </div>
+          <div class="prod__mid">
+            <div class="prod__art" aria-hidden="true"><svg viewBox="0 0 160 160" fill="none">
+    <rect x="44" y="56" width="72" height="62" rx="8" stroke="#1aa887" stroke-width="1.4" opacity=".5"/>
+    <rect x="36" y="40" width="88" height="18" rx="5" fill="#1aa887" opacity=".12"/>
+    <rect x="36" y="40" width="88" height="18" rx="5" stroke="#1aa887" stroke-width="1.4" opacity=".5"/>
+    <rect x="56" y="76" width="18" height="16" rx="3" stroke="#1aa887" stroke-width="1.2" opacity=".4"/>
+    <rect x="86" y="76" width="18" height="16" rx="3" stroke="#1aa887" stroke-width="1.2" opacity=".4"/>
+    <path d="M56 106h48" stroke="#1aa887" stroke-width="1.2" opacity=".4"/>
+    <circle cx="132" cy="48" r="4" fill="#1aa887" opacity=".35"/>
+    <circle cx="30" cy="86" r="3" fill="#1aa887" opacity=".25"/>
+  </svg></div>
+            <h2 class="prod__title">勺禾Smart</h2>
+            <p class="prod__desc">助力连锁餐饮将AI资产主权牢牢掌握在自己手中。</p>
+          </div>
+          <div class="prod__foot">
+            <span class="prod__go">进入产品页
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+            <span class="prod__meta">12 年 · 25 位专家级数字员工</span>
+          </div>
+        </a>
+        <a class="prod" href="growing/" data-accent="olive" data-reveal style="--d:230ms">
+          <div class="prod__top">
+            <span class="prod__num">02</span>
+            <span class="prod__name-sm">勺禾Growing</span>
+            <span class="prod__tag">外卖增长专家</span>
+          </div>
+          <div class="prod__mid">
+            <div class="prod__art" aria-hidden="true"><svg viewBox="0 0 160 160" fill="none">
+    <path d="M48 56h64l-5 72a8 8 0 0 1-8 7H61a8 8 0 0 1-8-7l-5-72Z" stroke="#4fae63" stroke-width="1.4" opacity=".55"/>
+    <path d="M48 56h64l-1.2 16H49.2L48 56Z" fill="#4fae63" opacity=".14"/>
+    <path d="M68 56V46a12 12 0 0 1 24 0v10" stroke="#4fae63" stroke-width="1.6" opacity=".5"/>
+    <path d="M72 86v20M80 86v7M76 86v7" stroke="#4fae63" stroke-width="1.4" opacity=".5"/>
+    <path d="M98 86h9M102.5 86v20" stroke="#4fae63" stroke-width="1.4" opacity=".5"/>
+    <path d="M34 40l12-9 10 8 14-13" stroke="#4fae63" stroke-width="1.6" opacity=".45"/>
+    <circle cx="70" cy="26" r="3.5" fill="#4fae63" opacity=".4"/>
+  </svg></div>
+            <h2 class="prod__title">勺禾Growing</h2>
+            <p class="prod__desc">把总部的决策，变成每家店的动作；再用每家店的结果，迭代总部的决策</p>
+          </div>
+          <div class="prod__foot">
+            <span class="prod__go">进入产品页
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+            <span class="prod__meta">7 大场景 · 29 项能力</span>
+          </div>
+        </a>
       </div>
     </div>
-
-    <div class="product-grid">
-      <a class="pcard pcard--smart shine gold-edge glow-follow card-gold" href="smart/" aria-label="进入 勺禾Smart 产品页" data-accent="jade">
-        <div class="pcard__media" aria-hidden="true"></div>
-        <div class="pcard__veil" aria-hidden="true"></div>
-        <div class="pcard__art" aria-hidden="true"><svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse class="art-shadow" cx="112" cy="186" rx="62" ry="10"/>
-    <!-- 底座 -->
-    <path d="M52 148h116v22a8 8 0 0 1-8 8H60a8 8 0 0 1-8-8v-22Z" fill="#C9A467"/>
-    <path d="M52 148h116v7H52z" fill="#B08B4C"/>
-    <!-- 主体楼块 -->
-    <rect x="66" y="76" width="88" height="74" rx="6" fill="#F6EFE2"/>
-    <rect x="66" y="76" width="88" height="74" rx="6" stroke="#E2D3B8"/>
-    <!-- 窗 -->
-    <rect x="78" y="90" width="22" height="20" rx="3" fill="#FFFDF8"/>
-    <rect x="120" y="90" width="22" height="20" rx="3" fill="#FFFDF8"/>
-    <rect x="78" y="120" width="64" height="9" rx="3" fill="#EFE4D0"/>
-    <!-- 顶棚/招牌 -->
-    <path d="M60 62h100a6 6 0 0 1 6 6v10H54V68a6 6 0 0 1 6-6Z" fill="#C9A467"/>
-    <path d="M54 78h112v9a10 10 0 0 1-10 10H64a10 10 0 0 1-10-10v-9Z" fill="#B08B4C"/>
-    <!-- 招牌餐叉 -->
-    <path d="M104 66v10M110 66v10M116 66v10" stroke="#FFF8EA" stroke-width="2.4" stroke-linecap="round"/>
-    <path d="M110 76v8" stroke="#FFF8EA" stroke-width="2.4" stroke-linecap="round"/>
-    <!-- 右侧小树 -->
-    <path d="M172 148v-16" stroke="#B08B4C" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="172" cy="120" r="16" fill="#8E6E38"/>
-    <circle cx="166" cy="116" r="6" fill="#A98255" opacity=".8"/>
-    <!-- 浮起的数据点 -->
-    <circle cx="52" cy="46" r="7" fill="#D8BC85"/>
-    <circle cx="178" cy="58" r="5" fill="#C9A467"/>
-    <circle cx="150" cy="34" r="4" fill="#E2D3B8"/>
-  </svg></div>
-        <div class="pcard__top">
-          <span class="pcard__no">01</span>
-          <span class="pcard__name-inline">勺禾Smart</span>
-          <span class="pcard__tag">企业级 AI 中台基座</span>
-        </div>
-        <div class="pcard__body">
-          <h2 class="pcard__name">勺禾Smart</h2>
-          <p class="pcard__line">助力连锁餐饮将AI资产主权牢牢掌握在自己手中。</p>
-        </div>
-        <div class="pcard__foot">
-          <span class="pcard__enter">进入产品页 <span class="circle" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </span></span>
-          <span class="pcard__meta">12 年 · 25 位专家级数字员工</span>
-        </div>
-      </a>
-      <a class="pcard pcard--growing shine gold-edge glow-follow card-gold" href="growing/" aria-label="进入 勺禾Growing 产品页" data-accent="olive">
-        <div class="pcard__media" aria-hidden="true"></div>
-        <div class="pcard__veil" aria-hidden="true"></div>
-        <div class="pcard__art" aria-hidden="true"><svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse class="art-shadow" cx="110" cy="188" rx="58" ry="10"/>
-    <!-- 外卖袋 -->
-    <path d="M62 92h96l-6 82a8 8 0 0 1-8 8H76a8 8 0 0 1-8-8l-6-82Z" fill="#C9A467"/>
-    <path d="M62 92h96l-1.6 22H63.6L62 92Z" fill="#B08B4C"/>
-    <!-- 提手 -->
-    <path d="M88 92V78a22 22 0 0 1 44 0v14" stroke="#B08B4C" stroke-width="7" stroke-linecap="round"/>
-    <!-- 袋面餐叉刀 -->
-    <path d="M96 128v26M104 128v10M100 128v10" stroke="#FFF8EA" stroke-width="2.6" stroke-linecap="round"/>
-    <path d="M124 128v26" stroke="#FFF8EA" stroke-width="2.6" stroke-linecap="round"/>
-    <path d="M118 128h12" stroke="#FFF8EA" stroke-width="2.6" stroke-linecap="round"/>
-    <!-- 小票 -->
-    <rect x="132" y="112" width="30" height="38" rx="3" fill="#FFFDF8" transform="rotate(8 132 112)"/>
-    <path d="M138 124h18M138 132h18M138 140h11" stroke="#D8BC85" stroke-width="2.4" stroke-linecap="round" transform="rotate(8 132 112)"/>
-    <!-- 杯子 -->
-    <path d="M156 138h30l-3 32a6 6 0 0 1-6 6h-12a6 6 0 0 1-6-6l-3-32Z" fill="#E2D3B8"/>
-    <path d="M156 138h30l-1 9h-28l-1-9Z" fill="#C9A467"/>
-    <path d="M171 138V120" stroke="#B08B4C" stroke-width="3" stroke-linecap="round"/>
-    <!-- 增长折线 -->
-    <path d="M44 66l18-14 16 12 20-20" stroke="#8E6E38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="98" cy="44" r="5" fill="#B08B4C"/>
-    <circle cx="44" cy="66" r="4" fill="#D8BC85"/>
-  </svg></div>
-        <div class="pcard__top">
-          <span class="pcard__no">02</span>
-          <span class="pcard__name-inline">勺禾Growing</span>
-          <span class="pcard__tag">外卖增长专家</span>
-        </div>
-        <div class="pcard__body">
-          <h2 class="pcard__name">勺禾Growing</h2>
-          <p class="pcard__line">把总部的决策，变成每家店的动作；再用每家店的结果，迭代总部的决策</p>
-        </div>
-        <div class="pcard__foot">
-          <span class="pcard__enter">进入产品页 <span class="circle" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </span></span>
-          <span class="pcard__meta">7 大场景 · 29 项能力</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="home-foot">
-      <span>勺智科技</span>
-      <div class="home-foot__links">
-        <a href="smart/">勺禾Smart</a>
-        <a href="growing/">勺禾Growing</a>
-        <a href="#recruit">试点招募</a>
-      </div>
-    </div>
-  </div>
+  </section>
 </main>
-
-<section class="enroll-block" id="recruit">
-  <div class="enroll-block__glow" aria-hidden="true"></div>
-  <div class="wrap enroll-block__inner">
-    <div class="enroll-head">
-      <div class="champ-index" data-reveal>试点招募</div>
-      <h2 class="enroll-head__title" data-reveal style="--reveal-delay:80ms">首批试点品牌招募中。</h2>
-      <p class="enroll-head__lead" data-reveal style="--reveal-delay:140ms">留下信息，我们会在 48 小时内与您联系，并在保密协议前提下安排一次业务调研。</p>
-      <div class="enroll-plats" data-reveal>
-      <span class="enroll-plats__label">覆盖平台</span>
-      <span class="enroll-plat"><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/meituan.webp" type="image/webp"><img src="./assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>美团外卖</span>
-      <span class="enroll-plat"><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/taobao.webp" type="image/webp"><img src="./assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>淘宝闪购</span>
-      <span class="enroll-plat"><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/jd.webp" type="image/webp"><img src="./assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>京东秒送</span>
+<section class="recruit" id="recruit">
+  <div class="container">
+    <div class="recruit__head">
+      <h2 class="recruit__title" data-reveal>首批试点品牌招募中。</h2>
+      <p class="recruit__desc" data-reveal style="--d:60ms">留下信息，我们会在 48 小时内与您联系，并在保密协议前提下安排一次业务调研。</p>
+      <div class="recruit__plats" data-reveal style="--d:100ms">
+        <span class="recruit__plats-label">覆盖平台</span>
+        <span class="plat-chip"><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/meituan.webp" type="image/webp"><img src="./assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>美团外卖</span><span class="plat-chip"><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/taobao.webp" type="image/webp"><img src="./assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>淘宝闪购</span><span class="plat-chip"><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/jd.webp" type="image/webp"><img src="./assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>京东秒送</span>
+      </div>
     </div>
-    </div>
-    <form class="enroll-form" data-reveal style="--reveal-delay:200ms" novalidate>
-      <div class="enroll-form__row">
-        <div class="ef">
-          <label class="ef__label" for="home-brand">品牌名称</label>
-          <input id="home-brand" name="brand" type="text" placeholder="如：某某餐饮" autocomplete="organization">
-        </div>
-        <div class="ef">
-          <label class="ef__label" for="home-contact">对接人姓名</label>
-          <input id="home-contact" name="contact" type="text" placeholder="请输入姓名" autocomplete="name">
+    <form class="form" data-reveal style="--d:140ms" novalidate>
+      <div class="form__row">
+        <div class="field"><label class="field__label" for="home-brand">品牌名称</label>
+          <input id="home-brand" name="brand" type="text" placeholder="如：某某餐饮" autocomplete="organization"></div>
+        <div class="field"><label class="field__label" for="home-contact">对接人姓名</label>
+          <input id="home-contact" name="contact" type="text" placeholder="请输入姓名" autocomplete="name"></div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label class="field__label" for="home-stores">在营门店数</label>
+          <input id="home-stores" name="stores" type="text" inputmode="numeric" placeholder="如：120 家"></div>
+        <div class="field"><label class="field__label" for="home-phone">联系电话</label>
+          <input id="home-phone" name="phone" type="tel" inputmode="tel" placeholder="请输入手机号" autocomplete="tel"></div>
+      </div>
+      <div class="field field--checks">
+        <span class="field__label">入驻外卖平台（可多选）</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="platform" value="美团外卖" checked><span class="check__box" aria-hidden="true"></span><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/meituan.webp" type="image/webp"><img src="./assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span><span>美团外卖</span></label><label class="check"><input type="checkbox" name="platform" value="淘宝闪购"><span class="check__box" aria-hidden="true"></span><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/taobao.webp" type="image/webp"><img src="./assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span><span>淘宝闪购</span></label><label class="check"><input type="checkbox" name="platform" value="京东秒送"><span class="check__box" aria-hidden="true"></span><span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/jd.webp" type="image/webp"><img src="./assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span><span>京东秒送</span></label>
         </div>
       </div>
-      <div class="enroll-form__row">
-        <div class="ef">
-          <label class="ef__label" for="home-stores">在营门店数</label>
-          <input id="home-stores" name="stores" type="text" inputmode="numeric" placeholder="如：120 家">
-        </div>
-        <div class="ef">
-          <label class="ef__label" for="home-phone">联系电话</label>
-          <input id="home-phone" name="phone" type="tel" inputmode="tel" placeholder="请输入手机号" autocomplete="tel">
-        </div>
-      </div>
-      <div class="ef ef--choice">
-        <span class="ef__label">入驻外卖平台（可多选）</span>
-        <div class="ef__choices">
-          <label class="ef-choice">
-            <input type="checkbox" name="platform" value="美团外卖" checked>
-            <span class="ef-choice__box" aria-hidden="true"></span>
-            <span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/meituan.webp" type="image/webp"><img src="./assets/img/plat/meituan.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>
-            <span>美团外卖</span>
-          </label>
-          <label class="ef-choice">
-            <input type="checkbox" name="platform" value="淘宝闪购">
-            <span class="ef-choice__box" aria-hidden="true"></span>
-            <span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/taobao.webp" type="image/webp"><img src="./assets/img/plat/taobao.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>
-            <span>淘宝闪购</span>
-          </label>
-          <label class="ef-choice">
-            <input type="checkbox" name="platform" value="京东秒送">
-            <span class="ef-choice__box" aria-hidden="true"></span>
-            <span class="plat-mark" aria-hidden="true"><picture><source srcset="./assets/img/plat/jd.webp" type="image/webp"><img src="./assets/img/plat/jd.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture></span>
-            <span>京东秒送</span>
-          </label>
-        </div>
-      </div>
-      <div class="enroll-form__foot">
-        <button class="gold-btn" type="submit">确认开启 AI 增长之旅 <span class="gold-btn__arrow">→</span></button>
-        <span class="enroll-form__ok" role="status">已收到您的信息，我们会尽快与您联系。</span>
-        <p class="enroll-form__note">提交即表示同意我们就本次体验与您联系，信息不用于其他用途。</p>
+      <div class="form__foot">
+        <button class="btn" type="submit">确认开启 AI 增长之旅</button>
+        <span class="form__ok" role="status">已收到您的信息，我们会尽快与您联系。</span>
+        <p class="form__note">提交即表示同意我们就本次体验与您联系，信息不用于其他用途。</p>
       </div>
     </form>
   </div>
 </section>
-<footer class="champ-footer">
-  <div class="wrap">
-    <div class="champ-footer__top">
-      <div class="champ-footer__brand">
-        <a class="logo" href="./"><span class="logo-mark" aria-hidden="true">
-        <img src="./assets/img/logo-mark.png" alt="" width="512" height="512" decoding="async">
-      </span>勺禾</a>
-        <div class="champ-footer__company">勺智（北京）科技有限公司<span>SpoonGrowing</span></div>
-        <p class="champ-footer__desc">勺禾AI·外卖增长专家是勺智科技旗下面向餐饮品牌外卖推广投放的增长系统。覆盖美团外卖、淘宝闪购、京东秒送三个平台。</p>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="footer__logo" href="./"><img src="./assets/img/logo-mark.png" alt="" width="512" height="512">勺禾</a>
+        <p class="footer__desc">勺禾AI·外卖增长专家是勺智科技旗下面向餐饮品牌外卖推广投放的增长系统。覆盖美团外卖、淘宝闪购、京东秒送三个平台。</p>
       </div>
-      <div class="champ-footer__note">
-        <span>本页面所示服务能力与平台对接方式，以实际接入与验证结果为准。</span><span>效果表述不含绝对金额承诺，观察窗口与干扰因素同步记录。</span>
-      </div>
+      <nav class="footer__cols">
+        <div class="footer__col"><h4 class="footer__col-title">服务条款</h4><a class="footer__link" href="terms/">用户协议</a><a class="footer__link" href="privacy/">隐私协议</a></div><div class="footer__col"><h4 class="footer__col-title">联系我们</h4><a class="footer__link" href="feedback/">建议反馈</a><a class="footer__link" href="index.html#recruit">售前咨询</a></div>
+      </nav>
     </div>
-    <div class="champ-footer__bottom">
-      <span>勺智（北京）科技有限公司</span>
-      <span>SpoonGrowing · AI</span>
+    <div class="footer__legal">
+      <p class="footer__copy">版权 © 2026 勺智（北京）科技有限公司 版权所有</p>
+      <div class="footer__contact"><span>联系电话：400-000-0000</span><span>北京市朝阳区（以实际办公地址为准）</span></div>
     </div>
   </div>
+  <div class="footer__wordmark" aria-hidden="true"><span>SPOON GROWING</span></div>
 </footer>
-<button class="pal-top" aria-label="返回顶部">
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
-</button>
-
-<script src="assets/js/engine.js" defer></script>
+<button class="to-top" aria-label="返回顶部"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
+<script src="./assets/js/wb.js" defer></script>
 </body>
 </html>
