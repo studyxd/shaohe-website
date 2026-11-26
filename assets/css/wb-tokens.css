@@ -1,0 +1,97 @@
+/* =========================================================================
+   勺禾官网 · Design System（严格对齐 WorkBuddy 实测规格）
+   —— 参考 https://www.workbuddy.cn 的实测设计参数
+   =========================================================================
+   实测数据来源：官网 CSS 与 computed style
+     · 容器 max-width 1440px，内容区约 1200px，水平留白 120px
+     · 区块 padding-top 96px（部分 120px / 153px）
+     · 底色 #ffffff，无分区底色变化
+     · 正文 16px / 28px / 300，色 #646464
+     · 标题 #1a1a1a，h2 60/72/400，h3 28/43.4/300
+     · 主按钮 #1a1a1a 底、白字、圆角 999、13.5px、10×20
+     · 卡片 #fff + 1px #e5e5e5 + 圆角 12，无阴影
+     · 页脚 #0a0a0a
+     · 品牌绿 #28b894 / #009273
+   ========================================================================= */
+:root {
+  /* 中性色（WorkBuddy 实测） */
+  --c-900: #1a1a1a;
+  --c-700: #333333;
+  --c-500: #646464;   /* 正文灰 */
+  --c-400: #8a8a8a;
+  --c-300: #bfbfbf;
+  --c-200: #e5e5e5;   /* 描边 */
+  --c-100: #f2f2f2;
+  --c-50:  #f8f8f8;
+  --c-0:   #ffffff;
+  --c-black: #0a0a0a;
+
+  /* 品牌绿 */
+  --g-600: #009273;
+  --g-500: #28b894;
+  --g-100: #e8f7f2;
+  --g-50:  #f4faf8;
+  --g-a12: rgba(40, 184, 148, 0.12);
+  --g-a24: rgba(40, 184, 148, 0.24);
+
+  /* 产品色（同色系微调） */
+  --brand: var(--g-500);
+  --brand-deep: var(--g-600);
+  --brand-soft: var(--g-50);
+  --brand-line: rgba(40, 184, 148, 0.24);
+
+  /* 字号（严格对齐） */
+  --f-hero: clamp(34px, 6.11vw, 88px);   /* 88 / 89.76 */
+  --f-h2:   clamp(26px, 4.17vw, 60px);   /* 60 / 72 */
+  --f-h3:   clamp(20px, 1.95vw, 28px);   /* 28 / 43.4 */
+  --f-h4:   19px;                        /* 19 / 26.6 */
+  --f-lead: clamp(15px, 1.11vw, 16px);
+  --f-body: 16px;                        /* 16 / 28 */
+  --f-sm:   14px;
+  --f-xs:   13.5px;
+  --f-mini: 12px;
+
+  --lh-hero: 1.02;
+  --lh-h2: 1.2;
+  --lh-h3: 1.55;
+  --lh-body: 1.75;
+
+  /* 布局 */
+  --max: 1200px;
+  --pad: clamp(20px, 5vw, 60px);
+  --sec: clamp(56px, 6.7vw, 96px);
+
+  /* 圆角（实测） */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+
+  --nav-h: 64px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 0.18s;
+  --t-base: 0.3s;
+
+  --font: "PingFang SC", "HarmonyOS Sans SC", "Hiragino Sans GB",
+    "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* Smart：冷绿 */
+[data-accent="jade"] {
+  --brand: #1aa887;
+  --brand-deep: #00806a;
+  --brand-soft: #f2faf7;
+  --brand-line: rgba(26, 168, 135, 0.22);
+}
+/* Growing：暖绿 */
+[data-accent="olive"] {
+  --brand: #4fae63;
+  --brand-deep: #2f8a45;
+  --brand-soft: #f3faf3;
+  --brand-line: rgba(79, 174, 99, 0.22);
+}

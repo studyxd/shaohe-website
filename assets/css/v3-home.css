@@ -1,0 +1,207 @@
+/* =========================================================================
+   首页 v3 —— 两张产品大卡片
+   ========================================================================= */
+.home {
+  position: relative;
+  z-index: 1;
+  padding-top: calc(var(--nav-h) + clamp(48px, 7vw, 96px));
+  padding-bottom: clamp(48px, 6vw, 80px);
+  background: var(--white);
+}
+
+/* 首屏：居中大标题 + 说明 */
+.home-hero {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: clamp(44px, 6vw, 76px);
+}
+.home-hero__title {
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+  max-width: 14em;
+  text-wrap: balance;
+}
+.home-hero__title .accent { color: var(--brand); }
+.home-hero__sub {
+  font-size: var(--fs-lead);
+  line-height: 1.75;
+  font-weight: 300;
+  color: var(--ink-500);
+  max-width: 30em;
+}
+
+/* ---------------- 产品卡片 ---------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.pcard {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0;
+  padding: clamp(24px, 2.6vw, 36px);
+  min-height: clamp(360px, 42vh, 440px);
+  border-radius: var(--r-xl);
+  background: var(--ink-50);
+  border: 1px solid var(--ink-200);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform var(--d2) var(--eo), border-color var(--d2) var(--eo),
+    box-shadow var(--d2) var(--eo), background var(--d2) var(--eo);
+}
+.pcard:hover {
+  transform: translateY(-4px);
+  background: var(--white);
+  border-color: var(--brand-line);
+  box-shadow: 0 24px 48px -32px rgba(0, 0, 0, 0.28);
+}
+
+/* 卡片顶部：编号 + 产品名 + 标签 */
+.pcard__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+.pcard__no {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-mini);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: var(--brand);
+}
+.pcard--growing .pcard__no { background: var(--ink-900); }
+.pcard__name-inline {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-900);
+}
+.pcard__tag {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-mini);
+  color: var(--ink-500);
+  background: var(--white);
+  border: 1px solid var(--ink-200);
+}
+.pcard__tag::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.pcard--growing .pcard__tag::before { background: var(--ink-300); }
+
+/* 卡片中部：插画 + 标题 */
+.pcard__body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  padding-top: 24px;
+}
+.pcard__art {
+  position: absolute;
+  right: clamp(16px, 2vw, 28px);
+  top: clamp(44px, 6vw, 64px);
+  width: clamp(120px, 14vw, 176px);
+  height: clamp(120px, 14vw, 176px);
+  z-index: 1;
+  pointer-events: none;
+  transition: transform var(--d2) var(--eo);
+}
+.pcard:hover .pcard__art { transform: translateY(-4px); }
+.pcard__art svg { width: 100%; height: 100%; }
+
+.pcard__name {
+  font-size: clamp(26px, 2.9vw, 40px);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+.pcard__line {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--ink-500);
+  max-width: 24em;
+}
+
+/* 卡片底部：进入 + 数据 */
+.pcard__foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ink-200);
+}
+.pcard__enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-900);
+}
+.pcard__enter .circle {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ink-300);
+  color: var(--ink-900);
+  transition: background var(--d1) var(--eo), color var(--d1),
+    border-color var(--d1), transform var(--d1) var(--eo);
+}
+.pcard__enter .circle svg { width: 12px; height: 12px; }
+.pcard:hover .pcard__enter .circle {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--white);
+  transform: translateX(2px);
+}
+.pcard--growing:hover .pcard__enter .circle {
+  background: var(--ink-900);
+  border-color: var(--ink-900);
+}
+.pcard__meta {
+  margin-left: auto;
+  font-size: var(--fs-mini);
+  color: var(--ink-400);
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .product-grid { grid-template-columns: 1fr; gap: 16px; }
+  .pcard { min-height: 300px; }
+  .pcard__art { width: 108px; height: 108px; opacity: 0.85; }
+}
+@media (max-width: 560px) {
+  .pcard { padding: 22px; min-height: 0; }
+  .pcard__art { display: none; }
+  .pcard__meta { display: none; }
+}
