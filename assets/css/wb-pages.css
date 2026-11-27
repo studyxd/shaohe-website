@@ -909,3 +909,24 @@
 }
 .field__textarea::placeholder { color: var(--c-300); }
 .feedback-form { max-width: none; margin-inline: 0; }
+
+/* A gentle green glow makes the homepage cards feel interactive. */
+.home__grid .prod {
+  transition: border-color 320ms ease, box-shadow 320ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home__grid .prod:hover {
+    border-color: rgba(45, 183, 139, .58);
+    box-shadow: 0 0 0 1px rgba(55, 199, 151, .08),
+                0 0 26px rgba(55, 199, 151, .13),
+                inset 0 0 20px rgba(55, 199, 151, .035);
+  }
+}
+.home__grid .prod:focus-visible {
+  outline: 2px solid rgba(45, 183, 139, .65);
+  outline-offset: 4px;
+  box-shadow: 0 0 26px rgba(55, 199, 151, .13);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home__grid .prod { transition: none; }
+}
